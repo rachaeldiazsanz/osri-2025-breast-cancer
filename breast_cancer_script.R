@@ -20,3 +20,8 @@ breast_cancer_data_clean <- subset(
     "35-39 years"
   )
 )
+
+# Removing unnecessary variables
+breast_cancer_data_clean = breast_cancer_data_clean[,-c(30, 32, 36)]
+
+
