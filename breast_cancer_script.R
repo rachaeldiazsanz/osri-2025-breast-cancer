@@ -24,4 +24,28 @@ breast_cancer_data_clean <- subset(
 # Removing unnecessary variables
 breast_cancer_data_clean = breast_cancer_data_clean[,-c(2, 30, 32, 36)]
 
+# Removing unknown income entries
+breast_cancer_data_clean = subset(breast_cancer_data_clean, breast_cancer_data_clean$`Median household income inflation adj to 2023` != "Unknown/missing/no match/Not 1990-2023")
 
+# Recoding income variable
+breast_cancer_data_clean$`Median household income inflation adj to 2023` = factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
+recoding_income <- c(
+  "< $40,000" = "<$50,000",
+  "$40,000 - $44,999" = "<$50,000",
+  "$45,000 - $49,999" = "<$50,000",
+  "$50,000 - $54,999" = "$50,000-$74,999",
+  "$55,000 - $59,999" = "$50,000-$74,999",
+  "$60,000 - $64,999" = "$50,000-$74,999",
+  "$65,000 - $69,999" = "$50,000-$74,999",
+  "$70,000 - $74,999" = "$50,000-$74,999",
+  "$75,000 - $79,999" = "$75,000-$99,999",
+  "$80,000 - $84,999" = "$75,000-$99,999",
+  "$85,000 - $89,999" = "$75,000-$99,999",
+  "$90,000 - $94,999" = "$75,000-$99,999",
+  "$95,000 - $99,999" = "$75,000-$99,999",
+  "$100,000 - $109,999" = ">=$100,000",
+  "$110,000 - $119,999" = ">=$100,000",
+  "$120,000+" = ">=$100,000"
+)
+
+breast_cancer_data_clean$`Median household income inflation adj to 2023` = as.factor(recoding_income[breast_cancer_data_clean$`Median household income inflation adj to 2023`])
