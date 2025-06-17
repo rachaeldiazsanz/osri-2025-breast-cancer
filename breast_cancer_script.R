@@ -1,5 +1,7 @@
 library(readr)
 library(dplyr)
+library(survival)
+library(ggplot2)
 
 # reading the file
 breast_cancer_data_new <- read_csv("Desktop/2025-osri-breast-cancer/breast_cancer_data_new.csv")
@@ -50,3 +52,27 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
       TRUE ~ NA_character_
     )
   )
+
+breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
+
+# Survival Curve for Stages (Kaplan-Meier)
+fitIncome <- survfit(
+  Surv(
+    time = breast_cancer_data_clean$`Survival months`,
+    event = breast_cancer_data_clean$`SEER cause-specific death classification` == "1"
+  ) ~ breast_cancer_data_clean$`Median household income inflation adj to 2023`
+)
+plot(fitIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.6, 1),
+     main = "Survival Curve by Income Group"
+)
+
+legend("bottomleft",
+       legend = levels(breast_cancer_data_clean$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:4
+)
