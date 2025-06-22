@@ -78,6 +78,7 @@ legend("bottomleft",
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
+
 # Subseting states
 california = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='California')
 connecticut = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='Connecticut')
@@ -94,3 +95,27 @@ new_york = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER regis
 seattle = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='Seattle (Puget Sound)')
 texas = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='Texas')
 utah = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='Utah')
+
+# Kaplan-Meier Income by States
+
+# California by Income
+fitIncome <- survfit(
+  Surv(
+    time = california$`Survival months`,
+    event = california$`SEER cause-specific death classification` == "1"
+  ) ~ california$`Median household income inflation adj to 2023`
+)
+plot(fitIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for California"
+)
+
+legend("bottomleft",
+       legend = levels(breast_cancer_data_clean$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
