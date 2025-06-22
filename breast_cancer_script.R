@@ -43,6 +43,8 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
     )
   )
 
+breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
+
 # Recoding cause of death to censor for survival analysis
 breast_cancer_data_clean <- breast_cancer_data_clean %>%
   mutate(
@@ -74,5 +76,5 @@ plot(fitIncome,
 legend("bottomleft",
        legend = levels(breast_cancer_data_clean$`Median household income inflation adj to 2023`),
        col = c("red", "blue", "green", "purple"),
-       lty = 1:4
+       lty = 1:1
 )
