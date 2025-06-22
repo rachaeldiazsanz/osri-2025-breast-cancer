@@ -105,6 +105,7 @@ fitIncome <- survfit(
     event = california$`SEER cause-specific death classification` == "1"
   ) ~ california$`Median household income inflation adj to 2023`
 )
+
 plot(fitIncome,
      col = c("red", "blue", "green", "purple"),
      xlab = "Time (in months)",
@@ -115,7 +116,82 @@ plot(fitIncome,
 )
 
 legend("bottomleft",
-       legend = levels(breast_cancer_data_clean$`Median household income inflation adj to 2023`),
+       legend = levels(california$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+
+# Drop unused factor levels first
+connecticut <- droplevels(connecticut[connecticut$`Median household income inflation adj to 2023` %in%
+                              c("<$50,000", "$50,000-$74,999"), ])
+
+# Connecticut by Income
+fitIncome <- survfit(
+  Surv(
+    time = connecticut$`Survival months`,
+    event = connecticut$`SEER cause-specific death classification` == "1"
+  ) ~ connecticut$`Median household income inflation adj to 2023`
+)
+
+plot(fitIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Connecticut"
+)
+
+legend("bottomleft",
+       legend = levels(connecticut$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+
+# Georgia by Income
+fitIncome <- survfit(
+  Surv(
+    time = georgia$`Survival months`,
+    event = georgia$`SEER cause-specific death classification` == "1"
+  ) ~ georgia$`Median household income inflation adj to 2023`
+)
+plot(fitIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Georgia"
+)
+
+legend("bottomleft",
+       legend = levels(georgia$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+# Drop unused factor levels first
+hawaii <- droplevels(hawaii[hawaii$`Median household income inflation adj to 2023` %in%
+                              c("$50,000-$74,999", "$75,000-$99,999"), ])
+
+
+# Hawaii by Income
+fitIncome <- survfit(
+  Surv(
+    time = hawaii$`Survival months`,
+    event = hawaii$`SEER cause-specific death classification` == "1"
+  ) ~ hawaii$`Median household income inflation adj to 2023`
+)
+plot(fitIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Hawaii"
+)
+
+legend("bottomleft",
+       legend = levels(hawaii$`Median household income inflation adj to 2023`),
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
