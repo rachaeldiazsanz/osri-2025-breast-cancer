@@ -99,14 +99,14 @@ utah = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry 
 # Kaplan-Meier Income by States
 
 # California by Income
-fitIncome <- survfit(
+fitCAIncome <- survfit(
   Surv(
     time = california$`Survival months`,
     event = california$`SEER cause-specific death classification` == "1"
   ) ~ california$`Median household income inflation adj to 2023`
 )
 
-plot(fitIncome,
+plot(fitCAIncome,
      col = c("red", "blue", "green", "purple"),
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -126,14 +126,14 @@ connecticut <- droplevels(connecticut[connecticut$`Median household income infla
                               c("<$50,000", "$50,000-$74,999"), ])
 
 # Connecticut by Income
-fitIncome <- survfit(
+fitCTIncome <- survfit(
   Surv(
     time = connecticut$`Survival months`,
     event = connecticut$`SEER cause-specific death classification` == "1"
   ) ~ connecticut$`Median household income inflation adj to 2023`
 )
 
-plot(fitIncome,
+plot(fitCTIncome,
      col = c("red", "blue", "green", "purple"),
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -143,10 +143,10 @@ plot(fitIncome,
 )
 
 legend("bottomleft",
-       legend = levels(connecticut$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
-       lty = 1:1
-)
+       legend = names(fitCTIncome$strata),
+       col = c("red", "blue", "green", "purple")[1:length(fitIncome$strata)],
+       lty = 1)
+
 
 # Georgia by Income
 fitIncome <- survfit(
