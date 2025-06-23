@@ -194,3 +194,84 @@ legend("bottomleft",
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
+
+# Drop unused factor levels first
+idaho <- droplevels(idaho[idaho$`Median household income inflation adj to 2023` %in%
+                              c( ">=$100,000"), ])
+
+
+# Idaho by Income
+fitIDIncome <- survfit(
+  Surv(
+    time = idaho$`Survival months`,
+    event = idaho$`SEER cause-specific death classification` == "1"
+  ) ~ idaho$`Median household income inflation adj to 2023`
+)
+plot(fitIDIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Idaho"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitIDIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitIDIncome$strata)],
+       lty = 1
+)
+
+
+
+# Drop unused factor levels first
+#iowa <- droplevels(iowa[iowa$`Median household income inflation adj to 2023` %in%
+#                            c( "<$50,000", ">=$100,000"), ])
+
+
+# Iowa by Income
+fitIAIncome <- survfit(
+  Surv(
+    time = iowa$`Survival months`,
+    event = iowa$`SEER cause-specific death classification` == "1"
+  ) ~ iowa$`Median household income inflation adj to 2023`
+)
+plot(fitIAIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Iowa"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitIAIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitIAIncome$strata)],
+       lty = 1
+)
+
+# Kentuky by Income
+fitKYIncome <- survfit(
+  Surv(
+    time = kentucky$`Survival months`,
+    event = kentucky$`SEER cause-specific death classification` == "1"
+  ) ~ kentucky$`Median household income inflation adj to 2023`
+)
+
+plot(fitKYIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Kentucky"
+)
+
+legend("bottomleft",
+       legend = levels(kentucky$`Median household income inflation adj to 2023`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+
+
