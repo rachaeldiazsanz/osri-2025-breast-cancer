@@ -122,8 +122,6 @@ legend("bottomleft",
 )
 
 # Drop unused factor levels first
-connecticut <- droplevels(connecticut[connecticut$`Median household income inflation adj to 2023` %in%
-                              c("<$50,000", "$50,000-$74,999"), ])
 
 # Connecticut by Income
 fitCTIncome <- survfit(
@@ -143,19 +141,19 @@ plot(fitCTIncome,
 )
 
 legend("bottomleft",
-       legend = names(fitCTIncome$strata),
-       col = c("red", "blue", "green", "purple")[1:length(fitIncome$strata)],
+       legend = gsub(".*=|`", "", names(fitCTIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitCTIncome$strata)],
        lty = 1)
 
-
 # Georgia by Income
-fitIncome <- survfit(
+fitGAIncome <- survfit(
   Surv(
     time = georgia$`Survival months`,
     event = georgia$`SEER cause-specific death classification` == "1"
   ) ~ georgia$`Median household income inflation adj to 2023`
 )
-plot(fitIncome,
+
+plot(fitGAIncome,
      col = c("red", "blue", "green", "purple"),
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -169,19 +167,20 @@ legend("bottomleft",
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
+
 # Drop unused factor levels first
 hawaii <- droplevels(hawaii[hawaii$`Median household income inflation adj to 2023` %in%
                               c("$50,000-$74,999", "$75,000-$99,999"), ])
 
 
 # Hawaii by Income
-fitIncome <- survfit(
+fitHIIncome <- survfit(
   Surv(
     time = hawaii$`Survival months`,
     event = hawaii$`SEER cause-specific death classification` == "1"
   ) ~ hawaii$`Median household income inflation adj to 2023`
 )
-plot(fitIncome,
+plot(fitHIIncome,
      col = c("red", "blue", "green", "purple"),
      xlab = "Time (in months)",
      ylab = "Survival Probability",
