@@ -275,3 +275,166 @@ legend("bottomleft",
 )
 
 
+
+# Louisiana by Income
+fitLAIncome <- survfit(
+  Surv(
+    time = louisiana$`Survival months`,
+    event = louisiana$`SEER cause-specific death classification` == "1"
+  ) ~ louisiana$`Median household income inflation adj to 2023`
+)
+plot(fitLAIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Louisiana"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitLAIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitLAIncome$strata)],
+       lty = 1
+)
+
+# New Jersey by Income 
+fitNJIncome <- survfit(
+  Surv(
+    time = new_jersey$`Survival months`,
+    event = new_jersey$`SEER cause-specific death classification` == "1"
+  ) ~ new_jersey$`Median household income inflation adj to 2023`
+)
+plot(fitNJIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for New Jersey"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitNJIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitNJIncome$strata)],
+       lty = 1
+)
+
+# New Mexico by Income
+fitNMIncome <- survfit(
+  Surv(
+    time = new_mexico$`Survival months`,
+    event = new_mexico$`SEER cause-specific death classification` == "1"
+  ) ~ new_mexico$`Median household income inflation adj to 2023`
+)
+plot(fitNMIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for New Mexico"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitNMIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitNMIncome$strata)],
+       lty = 1
+)
+
+# New York by Income
+fitNYIncome <- survfit(
+  Surv(
+    time = new_york$`Survival months`,
+    event = new_york$`SEER cause-specific death classification` == "1"
+  ) ~ new_york$`Median household income inflation adj to 2023`
+)
+plot(fitNYIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for New York"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitNYIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitNYIncome$strata)],
+       lty = 1
+)
+
+# Drop unused factor levels first
+#seattle <- droplevels(seattle[seattle$`Median household income inflation adj to 2023` %in%
+#                              c("<$50,000",">= $100,000 "), ])
+
+
+# Seattle by Income
+fitSEAIncome <- survfit(
+  Surv(
+    time = seattle$`Survival months`,
+    event = seattle$`SEER cause-specific death classification` == "1"
+  ) ~ seattle$`Median household income inflation adj to 2023`
+)
+
+plot(fitSEAIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Seattle"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitSEAIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitSEAIncome$strata)],
+       lty = 1
+)
+
+# Texas by Income
+fitTXIncome <- survfit(
+  Surv(
+    time = texas$`Survival months`,
+    event = texas$`SEER cause-specific death classification` == "1"
+  ) ~ texas$`Median household income inflation adj to 2023`
+)
+plot(fitTXIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Texas"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitTXIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitTXIncome$strata)],
+       lty = 1
+)
+
+#Utah by Income
+fitUTIncome <- survfit(
+  Surv(
+    time = utah$`Survival months`,
+    event = utah$`SEER cause-specific death classification` == "1"
+  ) ~ utah$`Median household income inflation adj to 2023`
+)
+plot(fitUTIncome,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Income Group for Utah"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitUTIncome$strata)),
+       col = c("red", "blue", "green", "purple")[1:length(fitUTIncome$strata)],
+       lty = 1
+)
+
+
+
