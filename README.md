@@ -1,2 +1,4 @@
 # osri-2025-breast-cancer
-Oberlin Summer Research Institute Project
+hi rachael
+hi maria! 
+rachael im glad im working with you on this project

@@ -47,6 +47,9 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
 # Change Chemotherapy variable to a factor 
 breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`= as.factor(breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`)
+# Change Grade Recode variable to a factor
+breast_cancer_data_clean$'Grade Recode (thru 2017)'= as.factor(breast_cancer_data_clean$`Grade Recode (thru 2017)`)
+
 
 # Recoding cause of death to censor for survival analysis
 breast_cancer_data_clean <- breast_cancer_data_clean %>%
