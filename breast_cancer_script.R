@@ -49,6 +49,14 @@ breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.fac
 breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`= as.factor(breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`)
 # Change Grade Recode variable to a factor
 breast_cancer_data_clean$'Grade Recode (thru 2017)'= as.factor(breast_cancer_data_clean$`Grade Recode (thru 2017)`)
+# Change Age to factor
+breast_cancer_data_clean$'Age recode with <1 year olds and 90+'= as.factor(breast_cancer_data_clean$`Age recode with <1 year olds and 90+`)
+# Change PRCDA to factor
+breast_cancer_data_clean$'PRCDA 2020'= as.factor(breast_cancer_data_clean$`PRCDA 2020`)
+# Change Primary site to a factor 
+breast_cancer_data_clean$'Primary Site - labeled'= as.factor(breast_cancer_data_clean$`Primary Site - labeled`)
+# Changing stage summary variable to a factor
+breast_cancer_data_clean$'Combined Summary Stage with Expanded Regional Codes (2004+)'= as.factor(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)
 
 
 # Recoding cause of death to censor for survival analysis
@@ -63,7 +71,7 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
 
-# Survival Curve for Stages (Kaplan-Meier)
+# Survival Curve for Income (Kaplan- Meier)
 fitIncome <- survfit(
   Surv(
     time = breast_cancer_data_clean$`Survival months`,
@@ -76,7 +84,7 @@ plot(fitIncome,
      ylab = "Survival Probability",
      xlim = c(0, 140),
      ylim = c(0.6, 1),
-     main = "Survival Curve by Income Group"
+     main = "Survival Curve by Income"
 )
 
 legend("bottomleft",
@@ -84,6 +92,50 @@ legend("bottomleft",
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
+
+# Survival Curve for Income (Kaplan- Meier)
+fitStage <- survfit(
+  Surv(
+    time = breast_cancer_data_clean$`Survival months`,
+    event = breast_cancer_data_clean$`SEER cause-specific death classification` == "1"
+  ) ~ breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`
+)
+plot(fitStage,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.6, 1),
+     main = "Survival Curve by Stage Summary"
+)
+
+legend("bottomleft",
+       legend = levels(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+# Survival Curve for Grade (Kaplan-Meier)
+fitGrade <- survfit(
+  Surv(
+    time = breast_cancer_data_clean$`Survival months`,
+    event = breast_cancer_data_clean$`SEER cause-specific death classification` == "1"
+  ) ~ breast_cancer_data_clean$`Grade Recode (thru 2017)`
+)
+plot(fitGrade,
+     col = c("red", "blue", "green", "purple"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.6, 1),
+     main = "Survival Curve by Grade"
+)
+
+legend("bottomleft",
+       legend = levels(breast_cancer_data_clean$`Grade Recode (thru 2017)`),
+       col = c("red", "blue", "green", "purple"),
+       lty = 1:1
+)
+
 
 # Subseting states
 california = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='California')
