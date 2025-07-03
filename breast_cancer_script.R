@@ -71,17 +71,17 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
 
-# Defining a new, colorblind-friendly color palette
+# Defining a colorblind-friendly color palette
 my_palette <- c(
-  "#70C1A6", # Minty Green
-  "#F79068", # Peachy Orange
-  "#8EA0C9", # Periwinkle
-  "#E28DC1", # Soft Pink
-  "#ABD761", # Fresh Lime
-  "#F7DC70", # Sunbeam Yellow
-  "#F4B5CF", # Dusty Rose
-  "#80CBE4", # Sky Blue
-  "#C3A6E8"  # Lavender
+  "#70C1A6", # mint
+  "#F79068", # peach
+  "#4E79A7", # strong blue
+  "#E28DC1", # soft pink
+  "#ABD761", # lime
+  "#F7DC70", # yellow
+  "#D37295", # deep rose
+  "#59A14F", # deeper teal green
+  "#AF7AA1"  # purple plum
 )
 
 # Survival Curve for Income (Kaplan- Meier)
