@@ -12,7 +12,7 @@ fitAge <- survfit(
 )
 
 plot(fitAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -23,7 +23,7 @@ plot(fitAge,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAge$strata)),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1
 )
@@ -54,7 +54,7 @@ fitCAAge <- survfit(
 )
 
 plot(fitCAAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitCAAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -65,7 +65,7 @@ plot(fitCAAge,
 
 legend("bottomleft",
        legend = levels(california$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitCAAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -79,7 +79,7 @@ fitCTAge <- survfit(
 )
 
 plot(fitCTAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = new_palette[1:length(fitCTAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -90,7 +90,7 @@ plot(fitCTAge,
 
 legend("bottomleft",
        legend = levels(connecticut$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = new_palette[1:length(fitCTIncome$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -104,7 +104,7 @@ fitAKAge <- survfit(
 )
 
 plot(fitAKAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAKAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -115,7 +115,7 @@ plot(fitAKAge,
 
 legend("bottomleft",
        legend = levels(alaska$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAKAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -129,7 +129,7 @@ fitGAAge <- survfit(
 )
 
 plot(fitGAAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -140,7 +140,7 @@ plot(fitGAAge,
 
 legend("bottomleft",
        legend = levels(georgia$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -154,7 +154,7 @@ fitHIAge <- survfit(
 )
 
 plot(fitHIAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -165,7 +165,7 @@ plot(fitHIAge,
 
 legend("bottomleft",
        legend = levels(hawaii$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -179,7 +179,7 @@ fitIAAge <- survfit(
 )
 
 plot(fitIAAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -190,7 +190,7 @@ plot(fitIAAge,
 
 legend("bottomleft",
        legend = levels(iowa$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -204,7 +204,7 @@ fitKTAge <- survfit(
 )
 
 plot(fitKTAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -215,7 +215,7 @@ plot(fitKTAge,
 
 legend("bottomleft",
        legend = levels(kentucky$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -229,7 +229,7 @@ fitLAAge <- survfit(
 )
 
 plot(fitLAAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -240,7 +240,7 @@ plot(fitLAAge,
 
 legend("bottomleft",
        legend = levels(louisiana$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -254,7 +254,7 @@ fitNJAge <- survfit(
 )
 
 plot(fitNJAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -265,7 +265,7 @@ plot(fitNJAge,
 
 legend("bottomleft",
        legend = levels(new_jersey$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -279,7 +279,7 @@ fitNMAge <- survfit(
 )
 
 plot(fitNMAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -290,7 +290,7 @@ plot(fitNMAge,
 
 legend("bottomleft",
        legend = levels(new_mexico$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -304,7 +304,7 @@ fitNYAge <- survfit(
 )
 
 plot(fitNYAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -315,7 +315,7 @@ plot(fitNYAge,
 
 legend("bottomleft",
        legend = levels(new_york$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -329,7 +329,7 @@ fitSEAAge <- survfit(
 )
 
 plot(fitSEAAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -340,7 +340,7 @@ plot(fitSEAAge,
 
 legend("bottomleft",
        legend = levels(seattle$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -354,7 +354,7 @@ fitTXAge <- survfit(
 )
 
 plot(fitTXAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -365,7 +365,7 @@ plot(fitTXAge,
 
 legend("bottomleft",
        legend = levels(texas$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
@@ -379,7 +379,7 @@ fitUTAge <- survfit(
 )
 
 plot(fitUTAge,
-     col = my_palette[1:length(fitIncome$strata)], 
+     col = my_palette[1:length(fitAge$strata)], 
      lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
@@ -390,7 +390,8 @@ plot(fitUTAge,
 
 legend("bottomleft",
        legend = levels(utah$`Age recode with <1 year olds and 90+`),
-       col = my_palette[1:length(fitIncome$strata)], 
+       col = my_palette[1:length(fitAge$strata)], 
        lwd = 2,
        lty = 1:1
 )
+

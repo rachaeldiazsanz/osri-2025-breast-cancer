@@ -72,7 +72,7 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
 
 # Defining a colorblind-friendly color palette
-my_palette <- c(
+new_palette <- c(
   "#70C1A6", # mint
   "#F79068", # peach
   "#4E79A7", # strong blue
