@@ -71,6 +71,19 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
 
+# Defining a new, colorblind-friendly color palette
+my_palette <- c(
+  "#70C1A6", # Minty Green
+  "#F79068", # Peachy Orange
+  "#8EA0C9", # Periwinkle
+  "#E28DC1", # Soft Pink
+  "#ABD761", # Fresh Lime
+  "#F7DC70", # Sunbeam Yellow
+  "#F4B5CF", # Dusty Rose
+  "#80CBE4", # Sky Blue
+  "#C3A6E8"  # Lavender
+)
+
 # Survival Curve for Income (Kaplan- Meier)
 fitIncome <- survfit(
   Surv(
@@ -78,8 +91,10 @@ fitIncome <- survfit(
     event = breast_cancer_data_clean$`SEER cause-specific death classification` == "1"
   ) ~ breast_cancer_data_clean$`Median household income inflation adj to 2023`
 )
+
 plot(fitIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = my_palette[1:length(fitIncome$strata)],
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -89,8 +104,9 @@ plot(fitIncome,
 
 legend("bottomleft",
        legend = levels(breast_cancer_data_clean$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
-       lty = 1:1
+       col = my_palette[1:length(fitIncome$strata)],
+       lwd = 2,
+       lty = 1
 )
 
 # Survival Curve for Income (Kaplan- Meier)
