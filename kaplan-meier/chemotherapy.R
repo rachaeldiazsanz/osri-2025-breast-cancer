@@ -9,7 +9,8 @@ fitCAChemo <- survfit(
 )
 
 plot(fitCAChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -19,7 +20,8 @@ plot(fitCAChemo,
 
 legend("bottomleft",
        legend = levels(california$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -32,7 +34,8 @@ fitCTChemo <- survfit(
 )
 
 plot(fitCTChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -42,7 +45,8 @@ plot(fitCTChemo,
 
 legend("bottomleft",
        legend = levels(connecticut$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -55,7 +59,8 @@ fitAKChemo <- survfit(
 )
 
 plot(fitAKChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -65,7 +70,8 @@ plot(fitAKChemo,
 
 legend("bottomleft",
        legend = levels(california$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -78,7 +84,8 @@ fitGAChemo <- survfit(
 )
 
 plot(fitGAChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -88,7 +95,8 @@ plot(fitGAChemo,
 
 legend("bottomleft",
        legend = levels(georgia$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -101,7 +109,8 @@ fitHIChemo <- survfit(
 )
 
 plot(fitHIChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -111,7 +120,8 @@ plot(fitHIChemo,
 
 legend("bottomleft",
        legend = levels(hawaii$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -124,7 +134,8 @@ fitIAChemo <- survfit(
 )
 
 plot(fitIAChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -134,7 +145,8 @@ plot(fitIAChemo,
 
 legend("bottomleft",
        legend = levels(iowa$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -147,7 +159,8 @@ fitKYChemo <- survfit(
 )
 
 plot(fitKYChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -157,7 +170,8 @@ plot(fitKYChemo,
 
 legend("bottomleft",
        legend = levels(kentucky$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -170,7 +184,8 @@ fitLAChemo <- survfit(
 )
 
 plot(fitLAChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -180,7 +195,8 @@ plot(fitLAChemo,
 
 legend("bottomleft",
        legend = levels(louisiana$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -193,7 +209,8 @@ fitNJChemo <- survfit(
 )
 
 plot(fitNJChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -203,7 +220,8 @@ plot(fitNJChemo,
 
 legend("bottomleft",
        legend = levels(new_jersey$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -216,7 +234,8 @@ fitNMChemo <- survfit(
 )
 
 plot(fitNMChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -226,7 +245,8 @@ plot(fitNMChemo,
 
 legend("bottomleft",
        legend = levels(new_mexico$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -239,7 +259,8 @@ fitNYChemo <- survfit(
 )
 
 plot(fitNYChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -249,7 +270,8 @@ plot(fitNYChemo,
 
 legend("bottomleft",
        legend = levels(new_york$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -262,7 +284,8 @@ fitSEAChemo <- survfit(
 )
 
 plot(fitSEAChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -272,7 +295,8 @@ plot(fitSEAChemo,
 
 legend("bottomleft",
        legend = levels(seattle$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -285,7 +309,8 @@ fitTXChemo <- survfit(
 )
 
 plot(fitTXChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -295,7 +320,8 @@ plot(fitTXChemo,
 
 legend("bottomleft",
        legend = levels(texas$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -308,7 +334,8 @@ fitUTChemo <- survfit(
 )
 
 plot(fitUTChemo,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitCAChemo$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -318,7 +345,8 @@ plot(fitUTChemo,
 
 legend("bottomleft",
        legend = levels(utah$`Chemotherapy recode (yes, no/unk) (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitCAChemo$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
