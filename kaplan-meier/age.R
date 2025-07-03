@@ -1,4 +1,49 @@
 # California by Age
+
+breast_cancer_data_clean_age <- droplevels(breast_cancer_data_clean[breast_cancer_data_clean$`Age recode with <1 year olds and 90+` %in%
+                                                                          c("15-19 years", "20-24 years", "25-29 years", "30-34 years", "35-39 years"), ])
+
+# All by Age
+fitAge <- survfit(
+  Surv(
+    time = breast_cancer_data_clean_age$`Survival months`,
+    event = breast_cancer_data_clean_age$`SEER cause-specific death classification` == "1"
+  ) ~ breast_cancer_data_clean_age$`Age recode with <1 year olds and 90+`
+)
+
+plot(fitAge,
+     col = c("red", "blue", "green", "purple","orange","brown"),
+     xlab = "Time (in months)",
+     ylab = "Survival Probability",
+     xlim = c(0, 140),
+     ylim = c(0.2, 1),
+     main = "Survival Curve by Age"
+)
+
+legend("bottomleft",
+       legend = gsub(".*=|`", "", names(fitAge$strata)),
+       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitAge$strata)],
+       lty = 1
+)
+
+# Subseting states
+california = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='California')
+connecticut = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Connecticut')
+alaska = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Alaska Natives')
+georgia = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Georgia')
+hawaii = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Hawaii')
+idaho = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Idaho')
+iowa = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Iowa')
+kentucky = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Kentucky')
+louisiana = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Louisiana')
+new_jersey = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='New Jersey')
+new_mexico = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='New Mexico')
+new_york = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='New York')
+seattle = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Seattle (Puget Sound)')
+texas = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Texas')
+utah = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Utah')
+
+
 fitCAAge <- survfit(
   Surv(
     time = california$`Survival months`,
