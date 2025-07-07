@@ -24,7 +24,6 @@ breast_cancer_data_clean <- subset(
   )
 )
 
-breast_cancer_data_clean$
 
 # Removing unnecessary variables
 breast_cancer_data_clean = breast_cancer_data_clean[,-c(2, 30, 32, 36)]
