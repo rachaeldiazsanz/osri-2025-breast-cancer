@@ -7,7 +7,8 @@ fitCAPrimary <- survfit(
 )
 
 plot(fitCAPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -17,7 +18,8 @@ plot(fitCAPrimary,
 
 legend("bottomleft",
        legend = levels(california$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -30,7 +32,8 @@ fitCTPrimary <- survfit(
 )
 
 plot(fitCTPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -40,7 +43,8 @@ plot(fitCTPrimary,
 
 legend("bottomleft",
        legend = levels(connecticut$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -53,7 +57,8 @@ fitGAPrimary <- survfit(
 )
 
 plot(fitGAPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -63,7 +68,8 @@ plot(fitGAPrimary,
 
 legend("bottomleft",
        legend = levels(georgia$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -76,7 +82,8 @@ fitIAPrimary <- survfit(
 )
 
 plot(fitIAPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -86,7 +93,8 @@ plot(fitIAPrimary,
 
 legend("bottomleft",
        legend = levels(iowa$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -99,7 +107,8 @@ fitKTPrimary <- survfit(
 )
 
 plot(fitKTPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -109,7 +118,8 @@ plot(fitKTPrimary,
 
 legend("bottomleft",
        legend = levels(kentucky$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -122,7 +132,8 @@ fitLAPrimary <- survfit(
 )
 
 plot(fitLAPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -132,7 +143,8 @@ plot(fitLAPrimary,
 
 legend("bottomleft",
        legend = levels(louisiana$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -145,7 +157,8 @@ fitNJPrimary <- survfit(
 )
 
 plot(fitNJPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +168,8 @@ plot(fitNJPrimary,
 
 legend("bottomleft",
        legend = levels(new_jersey$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -168,7 +182,8 @@ fitNMPrimary <- survfit(
 )
 
 plot(fitNMPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +193,8 @@ plot(fitNMPrimary,
 
 legend("bottomleft",
        legend = levels(new_mexico$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -191,7 +207,8 @@ fitNYPrimary <- survfit(
 )
 
 plot(fitNYPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -201,7 +218,8 @@ plot(fitNYPrimary,
 
 legend("bottomleft",
        legend = levels(new_york$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -214,7 +232,8 @@ fitSEAPrimary <- survfit(
 )
 
 plot(fitSEAPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -224,7 +243,8 @@ plot(fitSEAPrimary,
 
 legend("bottomleft",
        legend = levels(seattle$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -237,7 +257,8 @@ fitTXPrimary <- survfit(
 )
 
 plot(fitTXPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -247,7 +268,8 @@ plot(fitTXPrimary,
 
 legend("bottomleft",
        legend = levels(texas$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -260,7 +282,8 @@ fitUTPrimary <- survfit(
 )
 
 plot(fitUTPrimary,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -270,7 +293,8 @@ plot(fitUTPrimary,
 
 legend("bottomleft",
        legend = levels(utah$`Primary Site - labeled`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 

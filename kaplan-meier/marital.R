@@ -11,7 +11,8 @@ fitMarital <- survfit(
 )
 
 plot(fitMarital,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -21,7 +22,8 @@ plot(fitMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -51,7 +53,8 @@ fitCAMarital <- survfit(
 )
 
 plot(fitCAMarital,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -61,7 +64,8 @@ plot(fitCAMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCAMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCAMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -74,7 +78,8 @@ fitCTMarital <- survfit(
 )
 
 plot(fitCTMarital,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -84,7 +89,8 @@ plot(fitCTMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -97,7 +103,8 @@ fitAKMarital <- survfit(
 )
 
 plot(fitAKMarital,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -107,7 +114,8 @@ plot(fitAKMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -120,7 +128,8 @@ fitGAMarital <- survfit(
 )
 
 plot(fitGAMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -130,7 +139,8 @@ plot(fitGAMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGAMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGAMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -143,7 +153,8 @@ fitHIMarital <- survfit(
 )
 
 plot(fitHIMarital,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -153,7 +164,8 @@ plot(fitHIMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -167,7 +179,8 @@ fitIAMarital <- survfit(
 )
 
 plot(fitIAMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -177,7 +190,8 @@ plot(fitIAMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIAMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIAMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -190,7 +204,8 @@ fitKYMarital <- survfit(
 )
 
 plot(fitKYMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -200,7 +215,8 @@ plot(fitKYMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -212,7 +228,8 @@ fitLAMarital <- survfit(
   ) ~ louisiana$`Marital status at diagnosis`
 )
 plot(fitLAMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -222,7 +239,8 @@ plot(fitLAMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAMarital$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLAMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -234,7 +252,8 @@ fitNJMarital <- survfit(
   ) ~ new_jersey$`Marital status at diagnosis`
 )
 plot(fitNJMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -244,7 +263,8 @@ plot(fitNJMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJMarital$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -256,7 +276,8 @@ fitNMMarital <- survfit(
   ) ~ new_mexico$`Marital status at diagnosis`
 )
 plot(fitNMMarital,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -266,7 +287,8 @@ plot(fitNMMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMMarital$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -278,7 +300,8 @@ fitNYMarital <- survfit(
   ) ~ new_york$`Marital status at diagnosis`
 )
 plot(fitNYMarital,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -288,7 +311,8 @@ plot(fitNYMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +326,8 @@ fitSEAMarital <- survfit(
 )
 
 plot(fitSEAMarital,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -312,7 +337,8 @@ plot(fitSEAMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEAMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -324,7 +350,8 @@ fitTXMarital <- survfit(
   ) ~ texas$`Marital status at diagnosis`
 )
 plot(fitTXMarital,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -334,7 +361,8 @@ plot(fitTXMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -346,7 +374,8 @@ fitUTMarital <- survfit(
   ) ~ utah$`Marital status at diagnosis`
 )
 plot(fitUTMarital,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -356,7 +385,8 @@ plot(fitUTMarital,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTMarital$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTMarital$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 

@@ -7,7 +7,8 @@ fitCAStage <- survfit(
 )
 
 plot(fitCAStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -17,7 +18,8 @@ plot(fitCAStage,
 
 legend("bottomleft",
        legend = levels(california$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -30,7 +32,8 @@ fitCTStage <- survfit(
 )
 
 plot(fitCTStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -40,7 +43,8 @@ plot(fitCTStage,
 
 legend("bottomleft",
        legend = levels(connecticut$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -53,7 +57,8 @@ fitGAStage <- survfit(
 )
 
 plot(fitGAStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -63,7 +68,8 @@ plot(fitGAStage,
 
 legend("bottomleft",
        legend = levels(georgia$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -76,7 +82,8 @@ fitIAStage <- survfit(
 )
 
 plot(fitIAStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -86,7 +93,8 @@ plot(fitIAStage,
 
 legend("bottomleft",
        legend = levels(iowa$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -99,7 +107,8 @@ fitKTStage <- survfit(
 )
 
 plot(fitKTStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -109,7 +118,8 @@ plot(fitKTStage,
 
 legend("bottomleft",
        legend = levels(kentucky$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -122,7 +132,8 @@ fitLAStage <- survfit(
 )
 
 plot(fitLAStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -132,7 +143,8 @@ plot(fitLAStage,
 
 legend("bottomleft",
        legend = levels(louisiana$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -145,7 +157,8 @@ fitNJStage <- survfit(
 )
 
 plot(fitNJStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +168,8 @@ plot(fitNJStage,
 
 legend("bottomleft",
        legend = levels(new_jersey$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -168,7 +182,8 @@ fitNMStage <- survfit(
 )
 
 plot(fitNMStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +193,8 @@ plot(fitNMStage,
 
 legend("bottomleft",
        legend = levels(new_mexico$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -191,7 +207,8 @@ fitNYStage <- survfit(
 )
 
 plot(fitNYStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -201,7 +218,8 @@ plot(fitNYStage,
 
 legend("bottomleft",
        legend = levels(new_york$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -214,7 +232,8 @@ fitSEAStage <- survfit(
 )
 
 plot(fitSEAStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -224,7 +243,8 @@ plot(fitSEAStage,
 
 legend("bottomleft",
        legend = levels(seattle$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -237,7 +257,8 @@ fitTXStage <- survfit(
 )
 
 plot(fitTXStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -247,7 +268,8 @@ plot(fitTXStage,
 
 legend("bottomleft",
        legend = levels(texas$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -260,7 +282,8 @@ fitUTStage <- survfit(
 )
 
 plot(fitUTStage,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -270,7 +293,8 @@ plot(fitUTStage,
 
 legend("bottomleft",
        legend = levels(utah$`Combined Summary Stage with Expanded Regional Codes (2004+)`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 

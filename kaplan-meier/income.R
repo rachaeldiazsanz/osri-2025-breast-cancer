@@ -9,7 +9,8 @@ fitCAIncome <- survfit(
 )
 
 plot(fitCAIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -19,7 +20,8 @@ plot(fitCAIncome,
 
 legend("bottomleft",
        legend = levels(california$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -34,7 +36,8 @@ fitCTIncome <- survfit(
 )
 
 plot(fitCTIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -44,7 +47,8 @@ plot(fitCTIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitCTIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1)
 
 # Georgia by Income
@@ -56,7 +60,8 @@ fitGAIncome <- survfit(
 )
 
 plot(fitGAIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -66,7 +71,8 @@ plot(fitGAIncome,
 
 legend("bottomleft",
        legend = levels(georgia$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -83,7 +89,8 @@ fitHIIncome <- survfit(
   ) ~ hawaii$`Median household income inflation adj to 2023`
 )
 plot(fitHIIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -93,7 +100,8 @@ plot(fitHIIncome,
 
 legend("bottomleft",
        legend = levels(hawaii$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -110,7 +118,8 @@ fitIDIncome <- survfit(
   ) ~ idaho$`Median household income inflation adj to 2023`
 )
 plot(fitIDIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -120,7 +129,8 @@ plot(fitIDIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIDIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitIDIncome$strata)],
+      col = new_palette[1:length(fitAge$strata)],         
+      lwd = 2,
        lty = 1
 )
 
@@ -139,7 +149,8 @@ fitIAIncome <- survfit(
   ) ~ iowa$`Median household income inflation adj to 2023`
 )
 plot(fitIAIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -149,7 +160,8 @@ plot(fitIAIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIAIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitIAIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -162,7 +174,8 @@ fitKYIncome <- survfit(
 )
 
 plot(fitKYIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -172,7 +185,8 @@ plot(fitKYIncome,
 
 legend("bottomleft",
        legend = levels(kentucky$`Median household income inflation adj to 2023`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -186,7 +200,8 @@ fitLAIncome <- survfit(
   ) ~ louisiana$`Median household income inflation adj to 2023`
 )
 plot(fitLAIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -196,7 +211,8 @@ plot(fitLAIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitLAIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -208,7 +224,8 @@ fitNJIncome <- survfit(
   ) ~ new_jersey$`Median household income inflation adj to 2023`
 )
 plot(fitNJIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -218,7 +235,8 @@ plot(fitNJIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitNJIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -230,7 +248,8 @@ fitNMIncome <- survfit(
   ) ~ new_mexico$`Median household income inflation adj to 2023`
 )
 plot(fitNMIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -240,7 +259,8 @@ plot(fitNMIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitNMIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -252,7 +272,8 @@ fitNYIncome <- survfit(
   ) ~ new_york$`Median household income inflation adj to 2023`
 )
 plot(fitNYIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -262,7 +283,8 @@ plot(fitNYIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitNYIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -280,7 +302,8 @@ fitSEAIncome <- survfit(
 )
 
 plot(fitSEAIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -290,7 +313,8 @@ plot(fitSEAIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitSEAIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +326,8 @@ fitTXIncome <- survfit(
   ) ~ texas$`Median household income inflation adj to 2023`
 )
 plot(fitTXIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -312,7 +337,8 @@ plot(fitTXIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitTXIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -324,7 +350,8 @@ fitUTIncome <- survfit(
   ) ~ utah$`Median household income inflation adj to 2023`
 )
 plot(fitUTIncome,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -334,6 +361,8 @@ plot(fitUTIncome,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTIncome$strata)),
-       col = c("red", "blue", "green", "purple")[1:length(fitUTIncome$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
+

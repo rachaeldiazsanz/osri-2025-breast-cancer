@@ -29,7 +29,8 @@ fitCAProg <- survfit(
 )
 
 plot(fitCAProg,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -39,7 +40,8 @@ plot(fitCAProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCAProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCAProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -52,7 +54,8 @@ fitCTProg <- survfit(
 )
 
 plot(fitCTProg,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -62,7 +65,8 @@ plot(fitCTProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,,
        lty = 1
 )
 
@@ -85,7 +89,8 @@ plot(fitAKProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -98,7 +103,8 @@ fitGAProg <- survfit(
 )
 
 plot(fitGAProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -108,7 +114,8 @@ plot(fitGAProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGAProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGAProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -121,7 +128,8 @@ fitHIProg <- survfit(
 )
 
 plot(fitHIProg,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -131,7 +139,8 @@ plot(fitHIProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -145,7 +154,8 @@ fitIAProg <- survfit(
 )
 
 plot(fitIAProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +165,8 @@ plot(fitIAProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIAProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIAProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -168,7 +179,8 @@ fitKYProg <- survfit(
 )
 
 plot(fitKYProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +190,8 @@ plot(fitKYProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -190,7 +203,8 @@ fitLAProg <- survfit(
   ) ~ louisiana$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitLAProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -200,7 +214,8 @@ plot(fitLAProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAProg$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLAProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -212,7 +227,8 @@ fitNJProg <- survfit(
   ) ~ new_jersey$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitNJProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -222,7 +238,8 @@ plot(fitNJProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJProg$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -234,7 +251,8 @@ fitNMProg <- survfit(
   ) ~ new_mexico$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitNMProg,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -244,7 +262,8 @@ plot(fitNMProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMProg$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -256,7 +275,8 @@ fitNYProg <- survfit(
   ) ~ new_york$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitNYProg,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -266,7 +286,8 @@ plot(fitNYProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -280,7 +301,8 @@ fitSEAProg <- survfit(
 )
 
 plot(fitSEAProg,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -290,7 +312,8 @@ plot(fitSEAProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEAProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +325,8 @@ fitTXProg <- survfit(
   ) ~ texas$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitTXProg,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -312,7 +336,8 @@ plot(fitTXProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -324,7 +349,8 @@ fitUTProg <- survfit(
   ) ~ utah$`PR Status Recode Breast Cancer (2010+)`
 )
 plot(fitUTProg,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -334,7 +360,8 @@ plot(fitUTProg,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTProg$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTProg$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 

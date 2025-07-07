@@ -7,7 +7,8 @@ fitCAPRCDA <- survfit(
 )
 
 plot(fitCAPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -17,7 +18,8 @@ plot(fitCAPRCDA,
 
 legend("bottomleft",
        legend = levels(california$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -30,7 +32,8 @@ fitCTPRCDA <- survfit(
 )
 
 plot(fitCTPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -40,7 +43,8 @@ plot(fitCTPRCDA,
 
 legend("bottomleft",
        legend = levels(connecticut$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -53,7 +57,8 @@ fitAKPRCDA <- survfit(
 )
 
 plot(fitAKPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -63,7 +68,8 @@ plot(fitAKPRCDA,
 
 legend("bottomleft",
        legend = levels(alaska$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -76,7 +82,8 @@ fitGAPRCDA <- survfit(
 )
 
 plot(fitGAPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -86,7 +93,8 @@ plot(fitGAPRCDA,
 
 legend("bottomleft",
        legend = levels(georgia$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -99,7 +107,8 @@ fitIAPRCDA <- survfit(
 )
 
 plot(fitIAPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -109,7 +118,8 @@ plot(fitIAPRCDA,
 
 legend("bottomleft",
        legend = levels(iowa$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -122,7 +132,8 @@ fitKTPRCDA <- survfit(
 )
 
 plot(fitKTPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -132,7 +143,8 @@ plot(fitKTPRCDA,
 
 legend("bottomleft",
        legend = levels(kentucky$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -145,7 +157,8 @@ fitLAPRCDA <- survfit(
 )
 
 plot(fitLAPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +168,8 @@ plot(fitLAPRCDA,
 
 legend("bottomleft",
        legend = levels(louisiana$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1:1
 )
 
@@ -168,7 +182,8 @@ fitNJPRCDA <- survfit(
 )
 
 plot(fitNJPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +193,8 @@ plot(fitNJPRCDA,
 
 legend("bottomleft",
        legend = levels(new_jersey$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -192,7 +208,8 @@ fitNMPRCDA <- survfit(
 )
 
 plot(fitNMPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -202,7 +219,8 @@ plot(fitNMPRCDA,
 
 legend("bottomleft",
        legend = levels(new_mexico$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -215,7 +233,8 @@ fitNYPRCDA <- survfit(
 )
 
 plot(fitNYPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -225,7 +244,8 @@ plot(fitNYPRCDA,
 
 legend("bottomleft",
        legend = levels(new_york$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -238,7 +258,8 @@ fitSEAPRCDA <- survfit(
 )
 
 plot(fitSEAPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -248,7 +269,8 @@ plot(fitSEAPRCDA,
 
 legend("bottomleft",
        legend = levels(seattle$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -261,7 +283,8 @@ fitTXPRCDA <- survfit(
 )
 
 plot(fitTXPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -271,7 +294,8 @@ plot(fitTXPRCDA,
 
 legend("bottomleft",
        legend = levels(texas$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 
@@ -284,7 +308,8 @@ fitUTPRCDA <- survfit(
 )
 
 plot(fitUTPRCDA,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -294,7 +319,8 @@ plot(fitUTPRCDA,
 
 legend("bottomleft",
        legend = levels(utah$`PRCDA 2020`),
-       col = c("red", "blue", "green", "purple"),
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1:1
 )
 

@@ -29,7 +29,8 @@ fitCAType <- survfit(
 )
 
 plot(fitCAType,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],     
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -39,7 +40,8 @@ plot(fitCAType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCAType$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCAType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -52,7 +54,8 @@ fitCTType <- survfit(
 )
 
 plot(fitCTType,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -62,7 +65,8 @@ plot(fitCTType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTType$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -75,7 +79,8 @@ fitAKType <- survfit(
 )
 
 plot(fitAKType,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -85,7 +90,8 @@ plot(fitAKType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKType$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKType$strata)],
+       col = new_palette[1:length(fitAge$strata)],       
+       lwd = 2,
        lty = 1
 )
 
@@ -98,7 +104,8 @@ fitGAType <- survfit(
 )
 
 plot(fitGAType,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -108,7 +115,8 @@ plot(fitGAType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGAType$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGAType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -121,7 +129,8 @@ fitHIType <- survfit(
 )
 
 plot(fitHIType,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -131,7 +140,8 @@ plot(fitHIType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIType$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -145,7 +155,8 @@ fitIASubtype <- survfit(
 )
 
 plot(fitIASubtype,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +166,8 @@ plot(fitIASubtype,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIASubtype$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIASubtype$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -168,7 +180,8 @@ fitKYType <- survfit(
 )
 
 plot(fitKYType,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +191,8 @@ plot(fitKYType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYType$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -190,7 +204,8 @@ fitLAType <- survfit(
   ) ~ louisiana$`Breast Subtype (2010+)`
 )
 plot(fitLAType,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -200,7 +215,8 @@ plot(fitLAType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAType$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLAType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -212,7 +228,8 @@ fitNJType <- survfit(
   ) ~ new_jersey$`Breast Subtype (2010+)`
 )
 plot(fitNJType,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -222,7 +239,8 @@ plot(fitNJType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJType$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -234,7 +252,8 @@ fitNMType <- survfit(
   ) ~ new_mexico$`Breast Subtype (2010+)`
 )
 plot(fitNMType,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -244,7 +263,8 @@ plot(fitNMType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMType$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -256,7 +276,8 @@ fitNYType <- survfit(
   ) ~ new_york$`Breast Subtype (2010+)`
 )
 plot(fitNYType,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -266,7 +287,8 @@ plot(fitNYType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYType$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -280,7 +302,8 @@ fitSEAType <- survfit(
 )
 
 plot(fitSEAType,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -290,7 +313,8 @@ plot(fitSEAType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAType$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEAType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +326,8 @@ fitTXType <- survfit(
   ) ~ texas$`Breast Subtype (2010+)`
 )
 plot(fitTXType,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -312,7 +337,8 @@ plot(fitTXType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXType$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 
@@ -324,7 +350,8 @@ fitUTType <- survfit(
   ) ~ utah$`Breast Subtype (2010+)`
 )
 plot(fitUTType,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -334,7 +361,8 @@ plot(fitUTType,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTType$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTType$strata)],
+       col = new_palette[1:length(fitAge$strata)],      
+       lwd = 2,
        lty = 1
 )
 

@@ -29,7 +29,8 @@ fitCAEstro <- survfit(
 )
 
 plot(fitCAEstro,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],            
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -52,7 +53,8 @@ fitCTEstro <- survfit(
 )
 
 plot(fitCTEstro,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],            
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -75,7 +77,8 @@ fitAKEstro <- survfit(
 )
 
 plot(fitAKEstro,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -98,7 +101,8 @@ fitGAEstro <- survfit(
 )
 
 plot(fitGAEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -121,7 +125,8 @@ fitHIEstro <- survfit(
 )
 
 plot(fitHIEstro,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],            
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -145,7 +150,8 @@ fitIAEstro <- survfit(
 )
 
 plot(fitIAEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -168,7 +174,8 @@ fitKYEstro <- survfit(
 )
 
 plot(fitKYEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -190,7 +197,8 @@ fitLAEstro <- survfit(
   ) ~ louisiana$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitLAEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -212,7 +220,8 @@ fitNJEstro <- survfit(
   ) ~ new_jersey$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitNJEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -234,7 +243,8 @@ fitNMEstro <- survfit(
   ) ~ new_mexico$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitNMEstro,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -256,7 +266,8 @@ fitNYEstro <- survfit(
   ) ~ new_york$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitNYEstro,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -280,7 +291,8 @@ fitSEAEstro <- survfit(
 )
 
 plot(fitSEAEstro,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -302,7 +314,8 @@ fitTXEstro <- survfit(
   ) ~ texas$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitTXEstro,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,     
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -324,7 +337,8 @@ fitUTEstro <- survfit(
   ) ~ utah$`ER Status Recode Breast Cancer (2010+)`
 )
 plot(fitUTEstro,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,     
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),

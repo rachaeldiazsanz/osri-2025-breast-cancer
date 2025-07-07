@@ -29,7 +29,8 @@ fitCAHER2 <- survfit(
 )
 
 plot(fitCAHER2,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -39,7 +40,8 @@ plot(fitCAHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCAHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCAHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -52,7 +54,8 @@ fitCTHER2 <- survfit(
 )
 
 plot(fitCTHER2,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -62,7 +65,8 @@ plot(fitCTHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -75,7 +79,8 @@ fitAKHER2 <- survfit(
 )
 
 plot(fitAKHER2,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -85,7 +90,8 @@ plot(fitAKHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -98,7 +104,8 @@ fitGAHER2 <- survfit(
 )
 
 plot(fitGAHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -108,7 +115,8 @@ plot(fitGAHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGAHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGAHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -121,7 +129,8 @@ fitHIHER2 <- survfit(
 )
 
 plot(fitHIHER2,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+      col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -131,7 +140,8 @@ plot(fitHIHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -145,7 +155,8 @@ fitIAHER2 <- survfit(
 )
 
 plot(fitIAHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -155,7 +166,8 @@ plot(fitIAHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIAHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIAHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -168,7 +180,8 @@ fitKYHER2 <- survfit(
 )
 
 plot(fitKYHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +191,8 @@ plot(fitKYHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -190,7 +204,8 @@ fitLAHER2 <- survfit(
   ) ~ louisiana$`Derived HER2 Recode (2010+)`
 )
 plot(fitLAHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -200,7 +215,8 @@ plot(fitLAHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAHER2$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLAHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -212,7 +228,8 @@ fitNJHER2 <- survfit(
   ) ~ new_jersey$`Derived HER2 Recode (2010+)`
 )
 plot(fitNJHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -222,7 +239,8 @@ plot(fitNJHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJHER2$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -234,7 +252,8 @@ fitNMHER2 <- survfit(
   ) ~ new_mexico$`Derived HER2 Recode (2010+)`
 )
 plot(fitNMHER2,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -244,7 +263,8 @@ plot(fitNMHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMHER2$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -256,7 +276,8 @@ fitNYHER2 <- survfit(
   ) ~ new_york$`Derived HER2 Recode (2010+)`
 )
 plot(fitNYHER2,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -266,7 +287,8 @@ plot(fitNYHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -280,7 +302,8 @@ fitSEAHER2 <- survfit(
 )
 
 plot(fitSEAHER2,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -290,7 +313,8 @@ plot(fitSEAHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEAHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +326,8 @@ fitTXHER2 <- survfit(
   ) ~ texas$`Derived HER2 Recode (2010+)`
 )
 plot(fitTXHER2,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -312,7 +337,8 @@ plot(fitTXHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -324,7 +350,8 @@ fitUTHER2 <- survfit(
   ) ~ utah$`Derived HER2 Recode (2010+)`
 )
 plot(fitUTHER2,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2, 
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -334,7 +361,8 @@ plot(fitUTHER2,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTHER2$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTHER2$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 

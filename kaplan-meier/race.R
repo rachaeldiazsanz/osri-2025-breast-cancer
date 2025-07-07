@@ -12,7 +12,8 @@ fitRace <- survfit(
 )
 
 plot(fitRace,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -22,7 +23,8 @@ plot(fitRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -52,7 +54,8 @@ fitCARace <- survfit(
 )
 
 plot(fitCARace,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -62,7 +65,8 @@ plot(fitCARace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCARace$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCARace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -75,7 +79,8 @@ fitCTRace <- survfit(
 )
 
 plot(fitCTRace,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],      
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -85,7 +90,8 @@ plot(fitCTRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -98,7 +104,8 @@ fitAKRace <- survfit(
 )
 
 plot(fitAKRace,
-     col = c("red", "blue", "green", "purple"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -108,7 +115,8 @@ plot(fitAKRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -121,7 +129,8 @@ fitGARace <- survfit(
 )
 
 plot(fitGARace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -131,7 +140,8 @@ plot(fitGARace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGARace$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGARace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -144,7 +154,8 @@ fitHIRace <- survfit(
 )
 
 plot(fitHIRace,
-     col = c("red", "blue", "green", "purple","orange","brown"),
+     col = new_palette[1:length(fitAge$strata)],       
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -154,7 +165,8 @@ plot(fitHIRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -168,7 +180,8 @@ fitIARace <- survfit(
 )
 
 plot(fitIARace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -178,7 +191,8 @@ plot(fitIARace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIARace$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIARace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -191,7 +205,8 @@ fitKYRace <- survfit(
 )
 
 plot(fitKYRace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -201,7 +216,8 @@ plot(fitKYRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -213,7 +229,8 @@ fitLARace <- survfit(
   ) ~ louisiana$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitLARace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -223,7 +240,8 @@ plot(fitLARace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLARace$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLARace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -235,7 +253,8 @@ fitNJRace <- survfit(
   ) ~ new_jersey$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitNJRace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -245,7 +264,8 @@ plot(fitNJRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJRace$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -257,7 +277,8 @@ fitNMRace <- survfit(
   ) ~ new_mexico$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitNMRace,
-     col = c("red", "blue", "green", "purple","orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -267,7 +288,8 @@ plot(fitNMRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMRace$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -279,7 +301,8 @@ fitNYRace <- survfit(
   ) ~ new_york$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitNYRace,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -289,7 +312,8 @@ plot(fitNYRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -303,7 +327,8 @@ fitSEARace <- survfit(
 )
 
 plot(fitSEARace,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -313,7 +338,8 @@ plot(fitSEARace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEARace$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEARace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -325,7 +351,8 @@ fitTXRace <- survfit(
   ) ~ texas$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitTXRace,
-     col = c("red", "blue", "green", "purple", "orange", "brown"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -335,7 +362,8 @@ plot(fitTXRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
@@ -347,7 +375,8 @@ fitUTRace <- survfit(
   ) ~ utah$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`
 )
 plot(fitUTRace,
-     col = c("red", "blue", "green", "purple", "orange"),
+     col = new_palette[1:length(fitAge$strata)], 
+     lwd = 2,
      xlab = "Time (in months)",
      ylab = "Survival Probability",
      xlim = c(0, 140),
@@ -357,7 +386,8 @@ plot(fitUTRace,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTRace$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTRace$strata)],
+       col = new_palette[1:length(fitAge$strata)], 
+       lwd = 2,
        lty = 1
 )
 
