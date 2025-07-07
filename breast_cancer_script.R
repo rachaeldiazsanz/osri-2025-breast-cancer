@@ -72,8 +72,6 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
 
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
 
-breast_cancer_data_clean$is_bc_death -> breast_cancer_data_clean$`SEER cause-specific death classification`
-
 breast_cancer_data_clean$event = as.numeric(breast_cancer_data_clean$`SEER cause-specific death classification`)
 
 # Defining a colorblind-friendly color palette
