@@ -40,7 +40,8 @@ plot(fitCAEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCAEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCAEstro$strata)],
+        col = new_palette[1:length(fitAge$strata)],                  
+       lwd = 2,
        lty = 1
 )
 
@@ -64,7 +65,8 @@ plot(fitCTEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitCTEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitCTEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -88,7 +90,8 @@ plot(fitAKEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitAKEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitAKEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -112,7 +115,8 @@ plot(fitGAEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitGAEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitGAEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -136,7 +140,8 @@ plot(fitHIEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitHIEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange","brown")[1:length(fitHIEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -161,7 +166,8 @@ plot(fitIAEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitIAEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitIAEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -185,7 +191,8 @@ plot(fitKYEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitKYEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitKYEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -208,7 +215,8 @@ plot(fitLAEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitLAEstro$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitLAEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -231,7 +239,8 @@ plot(fitNJEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNJEstro$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNJEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -254,7 +263,8 @@ plot(fitNMEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNMEstro$strata)),
-       col = c("red", "blue", "green", "purple","orange")[1:length(fitNMEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -277,7 +287,8 @@ plot(fitNYEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitNYEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitNYEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -302,7 +313,8 @@ plot(fitSEAEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitSEAEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitSEAEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -325,7 +337,8 @@ plot(fitTXEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitTXEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange", "brown")[1:length(fitTXEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
@@ -348,7 +361,8 @@ plot(fitUTEstro,
 
 legend("bottomleft",
        legend = gsub(".*=|`", "", names(fitUTEstro$strata)),
-       col = c("red", "blue", "green", "purple", "orange")[1:length(fitUTEstro$strata)],
+       col = new_palette[1:length(fitAge$strata)],            
+       lwd = 2,
        lty = 1
 )
 
