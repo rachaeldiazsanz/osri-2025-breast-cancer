@@ -4,7 +4,7 @@
 fitCAChemo <- survfit(
   Surv(
     time = california$`Survival months`,
-    event = california$`SEER cause-specific death classification` == "1"
+    event = california$`SEER cause-specific death classification`
   ) ~ california$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -29,7 +29,7 @@ legend("bottomleft",
 fitCTChemo <- survfit(
   Surv(
     time = connecticut$`Survival months`,
-    event = connecticut$`SEER cause-specific death classification` == "1"
+    event = connecticut$`SEER cause-specific death classification`
   ) ~ connecticut$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -54,7 +54,7 @@ legend("bottomleft",
 fitAKChemo <- survfit(
   Surv(
     time = alaska$`Survival months`,
-    event = alaska$`SEER cause-specific death classification` == "1"
+    event = alaska$`SEER cause-specific death classification`  
   ) ~ alaska$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -79,7 +79,7 @@ legend("bottomleft",
 fitGAChemo <- survfit(
   Surv(
     time = georgia$`Survival months`,
-    event = georgia$`SEER cause-specific death classification` == "1"
+    event = georgia$`SEER cause-specific death classification`  
   ) ~ georgia$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -104,7 +104,7 @@ legend("bottomleft",
 fitHIChemo <- survfit(
   Surv(
     time = hawaii$`Survival months`,
-    event = hawaii$`SEER cause-specific death classification` == "1"
+    event = hawaii$`SEER cause-specific death classification`  
   ) ~ hawaii$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -129,7 +129,7 @@ legend("bottomleft",
 fitIAChemo <- survfit(
   Surv(
     time = iowa$`Survival months`,
-    event = iowa$`SEER cause-specific death classification` == "1"
+    event = iowa$`SEER cause-specific death classification`  
   ) ~ iowa$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -154,7 +154,7 @@ legend("bottomleft",
 fitKYChemo <- survfit(
   Surv(
     time = kentucky$`Survival months`,
-    event = kentucky$`SEER cause-specific death classification` == "1"
+    event = kentucky$`SEER cause-specific death classification`  
   ) ~ kentucky$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -179,7 +179,7 @@ legend("bottomleft",
 fitLAChemo <- survfit(
   Surv(
     time = louisiana$`Survival months`,
-    event = louisiana$`SEER cause-specific death classification` == "1"
+    event = louisiana$`SEER cause-specific death classification`  
   ) ~ louisiana$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -204,7 +204,7 @@ legend("bottomleft",
 fitNJChemo <- survfit(
   Surv(
     time = new_jersey$`Survival months`,
-    event = new_jersey$`SEER cause-specific death classification` == "1"
+    event = new_jersey$`SEER cause-specific death classification`  
   ) ~ new_jersey$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -229,7 +229,7 @@ legend("bottomleft",
 fitNMChemo <- survfit(
   Surv(
     time = new_mexico$`Survival months`,
-    event = new_mexico$`SEER cause-specific death classification` == "1"
+    event = new_mexico$`SEER cause-specific death classification`  
   ) ~ new_mexico$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -254,7 +254,7 @@ legend("bottomleft",
 fitNYChemo <- survfit(
   Surv(
     time = new_york$`Survival months`,
-    event = new_york$`SEER cause-specific death classification` == "1"
+    event = new_york$`SEER cause-specific death classification`  
   ) ~ new_york$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -279,7 +279,7 @@ legend("bottomleft",
 fitSEAChemo <- survfit(
   Surv(
     time = seattle$`Survival months`,
-    event = seattle$`SEER cause-specific death classification` == "1"
+    event = seattle$`SEER cause-specific death classification`  
   ) ~ seattle$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -304,7 +304,7 @@ legend("bottomleft",
 fitTXChemo <- survfit(
   Surv(
     time = texas$`Survival months`,
-    event = texas$`SEER cause-specific death classification` == "1"
+    event = texas$`SEER cause-specific death classification`  
   ) ~ texas$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
@@ -329,7 +329,7 @@ legend("bottomleft",
 fitUTChemo <- survfit(
   Surv(
     time = utah$`Survival months`,
-    event = utah$`SEER cause-specific death classification` == "1"
+    event = utah$`SEER cause-specific death classification`  
   ) ~ utah$'Chemotherapy recode (yes, no/unk) (2004+)'
 )
 
