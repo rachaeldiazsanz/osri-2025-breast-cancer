@@ -24,6 +24,8 @@ breast_cancer_data_clean <- subset(
   )
 )
 
+breast_cancer_data_clean$
+
 # Removing unnecessary variables
 breast_cancer_data_clean = breast_cancer_data_clean[,-c(2, 30, 32, 36)]
 
@@ -70,6 +72,10 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
   )
 
 breast_cancer_data_clean$`Survival months` = as.numeric(breast_cancer_data_clean$`Survival months`)
+
+breast_cancer_data_clean$is_bc_death -> breast_cancer_data_clean$`SEER cause-specific death classification`
+
+breast_cancer_data_clean$event = as.numeric(breast_cancer_data_clean$`SEER cause-specific death classification`)
 
 # Defining a colorblind-friendly color palette
 new_palette <- c(
@@ -171,6 +177,79 @@ texas = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry
 utah = subset(breast_cancer_data_clean, breast_cancer_data_clean$`SEER registry (with CA and GA as whole states)`=='Utah')
 
 
+# Cox Proportional Hazards Model
+
+# Load libraries
+
+library(broom)
+library(ggplot2)
+library(dplyr)
+
+# ------------------------------
+# 1️⃣ Run the Cox PH model
+# ------------------------------
+
+
+cox_model <- coxph(
+  Surv(`Survival months`, `event`) ~ 
+    `Age recode with <1 year olds and 90+` +
+    `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` +
+    `Grade Recode (thru 2017)` +
+    `Combined Summary Stage with Expanded Regional Codes (2004+)` +
+    `Radiation recode (2003+)` +
+    `Chemotherapy recode (yes, no/unk) (2004+)` +
+    `Breast Subtype (2010+)` +
+    `Derived HER2 Recode (2010+)` +
+    `ER Status Recode Breast Cancer (2010+)` +
+    `PR Status Recode Breast Cancer (2010+)` +
+    `Median household income inflation adj to 2023`,
+  data = breast_cancer_data_clean
+)
+
+print(cox_model)
+
+# ------------------------------
+# 2️⃣ Tidy the model output
+# ------------------------------
+
+tidy_cox <- tidy(cox_model, exponentiate = TRUE, conf.int = TRUE)
+
+# ------------------------------
+# 3️⃣ Clean it up for easy reading
+# ------------------------------
+
+tidy_pretty <- tidy_cox %>%
+  select(term, estimate, conf.low, conf.high, p.value) %>%
+  mutate(
+    estimate = round(estimate, 2),
+    conf.low = round(conf.low, 2),
+    conf.high = round(conf.high, 2),
+    p.value = signif(p.value, 3)
+  )
+
+# View it in the console
+print(tidy_pretty, n = Inf)
+
+# ------------------------------
+# 4️⃣ Save it to CSV (optional)
+# ------------------------------
+
+write.csv(tidy_pretty, "cox_hr_table.csv", row.names = FALSE)
+
+# ------------------------------
+# 5️⃣ Forest plot (optional)
+# ------------------------------
+
+ggplot(tidy_pretty, aes(x = estimate, y = reorder(term, estimate))) +
+  geom_point(color = "#4E79A7", size = 2) +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), height = 0.2) +
+  geom_vline(xintercept = 1, linetype = "dashed", color = "grey40") +
+  xlab("Hazard Ratio (HR)") +
+  ylab("Variable") +
+  theme_minimal(base_size = 12) +
+  ggtitle("Cox Proportional Hazards: Hazard Ratios with 95% CI")
+
+
 # 1. Add flag for breast cancer deaths
 breast_cancer_data_clean <- breast_cancer_data_clean %>%
   mutate(is_bc_death = `SEER cause-specific death classification` == "1")
@@ -233,4 +312,5 @@ ggplot(plot_data,
     fill = "Race/Ethnicity",
     title = "Proportional Breast Cancer Deaths\nby State and Race (Nightingale Style)"
   )
+
 
