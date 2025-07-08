@@ -24,7 +24,6 @@ breast_cancer_data_clean <- subset(
   )
 )
 
-
 # Removing unnecessary variables
 breast_cancer_data_clean = breast_cancer_data_clean[,-c(2, 30, 32, 36)]
 
@@ -40,6 +39,15 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
       `Median household income inflation adj to 2023` %in% c("$70,000 - $74,999", "$75,000 - $79,999", "$80,000 - $84,999", "$85,000 - $89,999") ~ "$75,000-$99,999",
       `Median household income inflation adj to 2023` %in% c("$90,000 - $94,999", "$95,000 - $99,999") ~ "$75,000-$99,999",
       `Median household income inflation adj to 2023` %in% c("$100,000 - $109,999", "$110,000 - $119,999", "$120,000+") ~ ">= $100,000",
+      TRUE ~ NA_character_
+    )
+  )
+
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(
+    `Age recode with <1 year olds and 90+` = case_when(
+      `Age recode with <1 year olds and 90+` %in% c("01-04 years", "05-09 years", "15-19 years", "20-24 years", "25-29 years") ~ ">30 years",
+      `Age recode with <1 year olds and 90+` %in% c("30-34 years", "35-39 years") ~ "30-39 years",
       TRUE ~ NA_character_
     )
   )
@@ -154,6 +162,74 @@ legend("bottomleft",
        col = c("red", "blue", "green", "purple"),
        lty = 1:1
 )
+breast_cancer_data_clean$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` <- factor(
+  breast_cancer_data_clean$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`,
+  levels = c("Non-Hispanic White", "Non-Hispanic Black", 
+             "Non-Hispanic Asian or Pacific Islander", 
+             "Non-Hispanic American Indian/Alaska Native",
+             "Non-Hispanic Unknown Race", "Hispanic (All Races)")
+)
+
+breast_cancer_data_clean$`Grade Recode (thru 2017)` <- factor(
+  breast_cancer_data_clean$`Grade Recode (thru 2017)`,
+  levels = c("Well differentiated; Grade I", "Moderately differentiated; Grade II", 
+             "Poorly differentiated; Grade III", 
+             "Undifferentiated; anaplastic; Grade IV",
+             "Unknown")
+)
+
+breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)` <- factor(
+  breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`,
+  levels = c("Localized only", "Regional lymph nodes involved only", 
+             "Regional by direct extension only", 
+             "Regional by both direct extension and lymph node involvement",
+             "Distant site(s)/node(s) involved", "Unknown/unstaged/unspecified/DCO")
+)
+
+breast_cancer_data_clean$`Radiation recode (2003+)` <- factor(
+  breast_cancer_data_clean$`Radiation recode (2003+)`,
+  levels = c("None/Unknown", "Beam radiation", 
+             "Combination of beam with implants or isotopes", 
+             "Radioactive implants (includes brachytherapy) (1988+)",
+             "Not available (IL or TX)", "Radiation, NOS  method or source not specified", 
+             "Radioisotopes (1988+)", "Recommended, unknown if administered", "Refused (1988+)")
+)
+
+breast_cancer_data_clean$`Breast Subtype (2010+)` <- factor(
+  breast_cancer_data_clean$`Breast Subtype (2010+)`,
+  levels = c("HR+/HER2-", "HR+/HER2+", 
+             "Recode not available", 
+             "HR-/HER2+", "HR-/HER2-",
+             "Unknown")
+)
+
+breast_cancer_data_clean$`Derived HER2 Recode (2010+)` <- factor(
+  breast_cancer_data_clean$`Derived HER2 Recode (2010+)`,
+  levels = c("Negative", "Positive", 
+             "Recode not available", 
+             "Borderline/Unknown")
+)
+
+breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)` <- factor(
+  breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)`,
+  levels = c("Negative", "Positive", 
+             "Recode not available", 
+             "Borderline/Unknown")
+)
+
+breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)` <- factor(
+  breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)`,
+  levels = c("Negative", "Positive", 
+             "Recode not available", 
+             "Borderline/Unknown")
+)
+
+breast_cancer_data_clean$`Median household income inflation adj to 2023` <- factor(
+  breast_cancer_data_clean$`Median household income inflation adj to 2023`,
+  levels = c(">= $100,000", "$75,000-$99,999", 
+             "$50,000-$74,999", 
+             "<$50,000")
+)
 
 
 # Subseting states
@@ -182,13 +258,14 @@ library(broom)
 library(ggplot2)
 library(dplyr)
 
+
 # ------------------------------
 # 1️⃣ Run the Cox PH model
 # ------------------------------
 
 
 cox_model <- coxph(
-  Surv(`Survival months`, `event`) ~ 
+  Surv(`Survival months`, `SEER cause-specific death classification` == "1") ~ 
     `Age recode with <1 year olds and 90+` +
     `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` +
     `Grade Recode (thru 2017)` +
@@ -204,6 +281,63 @@ cox_model <- coxph(
 )
 
 print(cox_model)
+
+cox_table <- tidy(cox_model)
+
+new_york_cox_model <- coxph(
+  Surv(`Survival months`, `SEER cause-specific death classification` == "1") ~ 
+    `Age recode with <1 year olds and 90+` +
+    `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` +
+    `Grade Recode (thru 2017)` +
+    `Combined Summary Stage with Expanded Regional Codes (2004+)` +
+    `Radiation recode (2003+)` +
+    `Chemotherapy recode (yes, no/unk) (2004+)` +
+    `Breast Subtype (2010+)` +
+    `Derived HER2 Recode (2010+)` +
+    `ER Status Recode Breast Cancer (2010+)` +
+    `PR Status Recode Breast Cancer (2010+)` +
+    `Median household income inflation adj to 2023`,
+  data = new_york
+)
+
+print(new_york_cox_model)
+
+california_cox_model <- coxph(
+  Surv(`Survival months`, `SEER cause-specific death classification` == "1") ~ 
+    `Age recode with <1 year olds and 90+` +
+    `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` +
+    `Grade Recode (thru 2017)` +
+    `Combined Summary Stage with Expanded Regional Codes (2004+)` +
+    `Radiation recode (2003+)` +
+    `Chemotherapy recode (yes, no/unk) (2004+)` +
+    `Breast Subtype (2010+)` +
+    `Derived HER2 Recode (2010+)` +
+    `ER Status Recode Breast Cancer (2010+)` +
+    `PR Status Recode Breast Cancer (2010+)` +
+    `Median household income inflation adj to 2023`,
+  data = california
+)
+
+print(california_cox_model)
+
+
+texas_cox_model <- coxph(
+  Surv(`Survival months`, `SEER cause-specific death classification` == "1") ~ 
+    `Age recode with <1 year olds and 90+` +
+    `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)` +
+    `Grade Recode (thru 2017)` +
+    `Combined Summary Stage with Expanded Regional Codes (2004+)` +
+    `Radiation recode (2003+)` +
+    `Chemotherapy recode (yes, no/unk) (2004+)` +
+    `Breast Subtype (2010+)` +
+    `Derived HER2 Recode (2010+)` +
+    `ER Status Recode Breast Cancer (2010+)` +
+    `PR Status Recode Breast Cancer (2010+)` +
+    `Median household income inflation adj to 2023`,
+  data = texas
+)
+
+print(texas_cox_model)
 
 # ------------------------------
 # 2️⃣ Tidy the model output
