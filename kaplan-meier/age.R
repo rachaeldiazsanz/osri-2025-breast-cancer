@@ -45,7 +45,7 @@ seattle = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEE
 texas = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Texas')
 utah = subset(breast_cancer_data_clean_age, breast_cancer_data_clean_age$`SEER registry (with CA and GA as whole states)`=='Utah')
 
-
+# California by age
 fitCAAge <- survfit(
   Surv(
     time = california$`Survival months`,
