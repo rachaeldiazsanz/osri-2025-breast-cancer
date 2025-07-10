@@ -47,5 +47,5 @@ california_rsf_model <- rfsrc(
 # Check output
 print(rsf_model)
 
-ƒ
+
 
