@@ -52,18 +52,34 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
     )
   )
 
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(
+    `Total number of in situ/malignant tumors for patient` = case_when(
+      `Total number of in situ/malignant tumors for patient` %in% c("1") ~ "1",
+      `Total number of in situ/malignant tumors for patient` %in% c("2") ~ "2",
+      `Total number of in situ/malignant tumors for patient` %in% c("3", "4", "5") ~ "3+",
+      TRUE ~ NA_character_
+    )
+  )
+
 # Change the Income variable to factor
 breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
+
 # Change Chemotherapy variable to a factor 
 breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`= as.factor(breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`)
+
 # Change Grade Recode variable to a factor
 breast_cancer_data_clean$'Grade Recode (thru 2017)'= as.factor(breast_cancer_data_clean$`Grade Recode (thru 2017)`)
+
 # Change Age to factor
 breast_cancer_data_clean$'Age recode with <1 year olds and 90+'= as.factor(breast_cancer_data_clean$`Age recode with <1 year olds and 90+`)
+
 # Change PRCDA to factor
 breast_cancer_data_clean$'PRCDA 2020'= as.factor(breast_cancer_data_clean$`PRCDA 2020`)
+
 # Change Primary site to a factor 
 breast_cancer_data_clean$'Primary Site - labeled'= as.factor(breast_cancer_data_clean$`Primary Site - labeled`)
+
 # Changing stage summary variable to a factor
 breast_cancer_data_clean$'Combined Summary Stage with Expanded Regional Codes (2004+)'= as.factor(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)
 
@@ -276,7 +292,8 @@ cox_model <- coxph(
     `Derived HER2 Recode (2010+)` +
     `ER Status Recode Breast Cancer (2010+)` +
     `PR Status Recode Breast Cancer (2010+)` +
-    `Median household income inflation adj to 2023`,
+    `Median household income inflation adj to 2023` +
+  `Total number of in situ/malignant tumors for patient`,
   data = breast_cancer_data_clean
 )
 
@@ -296,7 +313,8 @@ new_york_cox_model <- coxph(
     `Derived HER2 Recode (2010+)` +
     `ER Status Recode Breast Cancer (2010+)` +
     `PR Status Recode Breast Cancer (2010+)` +
-    `Median household income inflation adj to 2023`,
+    `Median household income inflation adj to 2023` +
+  `Total number of in situ/malignant tumors for patient`,
   data = new_york
 )
 
@@ -314,7 +332,8 @@ california_cox_model <- coxph(
     `Derived HER2 Recode (2010+)` +
     `ER Status Recode Breast Cancer (2010+)` +
     `PR Status Recode Breast Cancer (2010+)` +
-    `Median household income inflation adj to 2023`,
+    `Median household income inflation adj to 2023` +
+  `Total number of in situ/malignant tumors for patient`,
   data = california
 )
 
@@ -333,7 +352,8 @@ texas_cox_model <- coxph(
     `Derived HER2 Recode (2010+)` +
     `ER Status Recode Breast Cancer (2010+)` +
     `PR Status Recode Breast Cancer (2010+)` +
-    `Median household income inflation adj to 2023`,
+    `Median household income inflation adj to 2023` +
+  `Total number of in situ/malignant tumors for patient`,
   data = texas
 )
 
@@ -365,7 +385,14 @@ print(tidy_pretty, n = Inf)
 # 4️⃣ Save it to CSV (optional)
 # ------------------------------
 
-write.csv(tidy_pretty, "cox_hr_table.csv", row.names = FALSE)
+california_cox_table <- tidy(california_cox_model)  # raw log HRs
+write.csv(california_cox_table, "new_california_cox_model.csv", row.names = FALSE)
+
+new_york_cox_table <- tidy(new_york_cox_model)
+write.csv(new_york_cox_table, "new_new_york_cox_model.csv", row.names = FALSE)
+
+texas_cox_table <- tidy(texas_cox_model)
+write.csv(texas_cox_table, "new_texas_cox_model.csv", row.names = FALSE)
 
 # ------------------------------
 # 5️⃣ Forest plot (optional)

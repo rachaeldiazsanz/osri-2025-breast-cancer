@@ -1,0 +1,42 @@
+"term","estimate","std.error","statistic","p.value"
+"`Age recode with <1 year olds and 90+`30-39 years",-0.0866109015614445,0.157008262102415,-0.551632763790156,0.581199984149427
+"`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`Non-Hispanic Black",0.309813943738325,0.133454400081611,2.32149665765135,0.0202600542773236
+"`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`Non-Hispanic Asian or Pacific Islander",-0.79984042365296,0.366092373801497,-2.18480493146424,0.0289031523216603
+"`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`Non-Hispanic American Indian/Alaska Native",-1.49765928828431,1.01838266836969,-1.47062527162004,0.141392485656265
+"`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`Non-Hispanic Unknown Race",-13.5033175059575,3298.9185559644,-0.00409325579788676,0.99673406351544
+"`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`Hispanic (All Races)",-0.0677711095996745,0.12648585981812,-0.535799888597236,0.592096859197427
+"`Grade Recode (thru 2017)`Moderately differentiated; Grade II",1.45856659443817,0.726624977004688,2.00731689743272,0.0447159310715677
+"`Grade Recode (thru 2017)`Poorly differentiated; Grade III",1.83951985418292,0.719918036631354,2.55517956292693,0.0106133031539366
+"`Grade Recode (thru 2017)`Undifferentiated; anaplastic; Grade IV",2.46796764233205,1.2405004873252,1.98949348875593,0.0466467597942908
+"`Grade Recode (thru 2017)`Unknown",1.67827782896154,0.715688823681138,2.34498258660703,0.0190279682562094
+"`Combined Summary Stage with Expanded Regional Codes (2004+)`Regional lymph nodes involved only",0.814700497650683,0.148684220823192,5.47940119765286,4.2676767829955e-08
+"`Combined Summary Stage with Expanded Regional Codes (2004+)`Regional by direct extension only",1.33179527432519,0.302895226733736,4.3968843242813,1.09815831113978e-05
+"`Combined Summary Stage with Expanded Regional Codes (2004+)`Regional by both direct extension and lymph node involvement",2.1210395361578,0.19708955345828,10.76180598586,5.21382254904401e-27
+"`Combined Summary Stage with Expanded Regional Codes (2004+)`Distant site(s)/node(s) involved",2.60392718156671,0.160074187171303,16.2670023667221,1.6924267715208e-59
+"`Combined Summary Stage with Expanded Regional Codes (2004+)`Unknown/unstaged/unspecified/DCO",0.733406574543612,0.218042993536315,3.36358698185578,0.000769365875089352
+"`Radiation recode (2003+)`Beam radiation",NA,0,NA,NA
+"`Radiation recode (2003+)`Combination of beam with implants or isotopes",NA,0,NA,NA
+"`Radiation recode (2003+)`Radioactive implants (includes brachytherapy) (1988+)",NA,0,NA,NA
+"`Radiation recode (2003+)`Not available (IL or TX)",NA,0,NA,NA
+"`Radiation recode (2003+)`Radiation, NOS  method or source not specified",NA,0,NA,NA
+"`Radiation recode (2003+)`Radioisotopes (1988+)",NA,0,NA,NA
+"`Radiation recode (2003+)`Recommended, unknown if administered",NA,0,NA,NA
+"`Radiation recode (2003+)`Refused (1988+)",NA,0,NA,NA
+"`Chemotherapy recode (yes, no/unk) (2004+)`Yes",0.132624110681181,0.121530106163911,1.09128605962302,0.275147029867796
+"`Breast Subtype (2010+)`HR+/HER2+",12.992174907347,1326.60328289145,0.00979356456817248,0.992185990948052
+"`Breast Subtype (2010+)`Recode not available",0.0708269056573692,0.557758370184955,0.126984926526307,0.898952328852244
+"`Breast Subtype (2010+)`HR-/HER2+",13.2018398005953,1326.60333318693,0.00995161060607335,0.992059894599974
+"`Breast Subtype (2010+)`HR-/HER2-",0.0110555608760905,0.341201647804573,0.0324018390509727,0.974151595908919
+"`Breast Subtype (2010+)`Unknown",-1.40254759997506,1.24114069538536,-1.13004722606375,0.258456325312418
+"`Derived HER2 Recode (2010+)`Positive",-13.6611735326315,1326.60327165892,-0.0102978590694625,0.991783642457916
+"`Derived HER2 Recode (2010+)`Recode not available",NA,0,NA,NA
+"`Derived HER2 Recode (2010+)`Borderline/Unknown",1.2098423117173,1.22224712317238,0.989850815583943,0.322247042869994
+"`ER Status Recode Breast Cancer (2010+)`Positive",0.189207739551121,0.317963845889005,0.595060545396628,0.551803000554981
+"`ER Status Recode Breast Cancer (2010+)`Recode not available",NA,0,NA,NA
+"`ER Status Recode Breast Cancer (2010+)`Borderline/Unknown",1.60967278986079,0.943800921371547,1.70552152833416,0.0880972006607812
+"`PR Status Recode Breast Cancer (2010+)`Positive",-0.242045954892357,0.183846519753964,-1.31656533512997,0.187984364776424
+"`PR Status Recode Breast Cancer (2010+)`Recode not available",NA,0,NA,NA
+"`PR Status Recode Breast Cancer (2010+)`Borderline/Unknown",-1.59032361027501,0.910905762399132,-1.74587062232039,0.0808334357389302
+"`Median household income inflation adj to 2023`$75,000-$99,999",0.0562133655306729,0.232219235430338,0.242070237749689,0.808725739293488
+"`Median household income inflation adj to 2023`$50,000-$74,999",0.0256555643617707,0.231838813079817,0.110661213370421,0.911885004258252
+"`Median household income inflation adj to 2023`<$50,000",0.198634120363864,0.297617046440151,0.667415132095961,0.504507002844742
