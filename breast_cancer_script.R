@@ -317,6 +317,18 @@ new_york_cox_model <- coxph(
   `Total number of in situ/malignant tumors for patient`,
   data = new_york
 )
+# Hazard Ratio Code
+summary_model <- summary(new_york_cox_model)
+
+HR <- exp(coef(new_york_cox_model))
+CI <- exp(confint(new_york_cox_model))
+pvals <- summary_model$coefficients[, "Pr(>|z|)"]
+
+result_table <- cbind(HR, CI, pvals)
+colnames(result_table) <- c("Hazard Ratio", "2.5 % CI", "97.5 % CI", "p-value")
+
+print(round(result_table, 3))  
+
 
 print(new_york_cox_model)
 
@@ -337,6 +349,19 @@ california_cox_model <- coxph(
   data = california
 )
 
+# Hazard Ratio Code
+summary_model <- summary(california_cox_model)
+
+HR <- exp(coef(california_cox_model))
+CI <- exp(confint(california_cox_model))
+pvals <- summary_model$coefficients[, "Pr(>|z|)"]
+
+result_table <- cbind(HR, CI, pvals)
+colnames(result_table) <- c("Hazard Ratio", "2.5 % CI", "97.5 % CI", "p-value")
+
+print(round(result_table, 3))  
+
+
 print(california_cox_model)
 
 
@@ -356,6 +381,18 @@ texas_cox_model <- coxph(
   `Total number of in situ/malignant tumors for patient`,
   data = texas
 )
+# Hazard Ratio Code
+summary_model <- summary(texas_cox_model)
+
+HR <- exp(coef(texas_cox_model))
+CI <- exp(confint(texas_cox_model))
+pvals <- summary_model$coefficients[, "Pr(>|z|)"]
+
+result_table <- cbind(HR, CI, pvals)
+colnames(result_table) <- c("Hazard Ratio", "2.5 % CI", "97.5 % CI", "p-value")
+
+print(round(result_table, 3))  
+
 
 print(texas_cox_model)
 
