@@ -62,17 +62,35 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
     )
   )
 
-# Change the Income variable to factor
-breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
+# Change Age to factor
+breast_cancer_data_clean$'Age recode with <1 year olds and 90+'= as.factor(breast_cancer_data_clean$`Age recode with <1 year olds and 90+`)
 
-# Change Chemotherapy variable to a factor 
-breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`= as.factor(breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`)
+# Change Race variable to a factor 
+breast_cancer_data_clean$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`= as.factor(breast_cancer_data_clean$`Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`)
 
 # Change Grade Recode variable to a factor
 breast_cancer_data_clean$'Grade Recode (thru 2017)'= as.factor(breast_cancer_data_clean$`Grade Recode (thru 2017)`)
 
-# Change Age to factor
-breast_cancer_data_clean$'Age recode with <1 year olds and 90+'= as.factor(breast_cancer_data_clean$`Age recode with <1 year olds and 90+`)
+# Changing stage summary variable to a factor
+breast_cancer_data_clean$'Combined Summary Stage with Expanded Regional Codes (2004+)'= as.factor(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)
+
+# Change Radiation variable to a factor 
+breast_cancer_data_clean$`Radiation recode (2003+)`= as.factor(breast_cancer_data_clean$`Radiation recode (2003+)`)
+
+# Change Chemotherapy variable to a factor 
+breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`= as.factor(breast_cancer_data_clean$`Chemotherapy recode (yes, no/unk) (2004+)`)
+
+# Change Subtype variable to a factor 
+breast_cancer_data_clean$`Breast Subtype (2010+)`= as.factor(breast_cancer_data_clean$`Breast Subtype (2010+)`)
+
+# Change HER2 status variable to a factor 
+breast_cancer_data_clean$`Derived HER2 Recode (2010+)`= as.factor(breast_cancer_data_clean$`Derived HER2 Recode (2010+)`)
+
+# Change Estrogen status variable to a factor 
+breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)`= as.factor(breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)`)
+
+# Change Progesterone status variable to a factor 
+breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)`= as.factor(breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)`)
 
 # Change PRCDA to factor
 breast_cancer_data_clean$'PRCDA 2020'= as.factor(breast_cancer_data_clean$`PRCDA 2020`)
@@ -80,9 +98,11 @@ breast_cancer_data_clean$'PRCDA 2020'= as.factor(breast_cancer_data_clean$`PRCDA
 # Change Primary site to a factor 
 breast_cancer_data_clean$'Primary Site - labeled'= as.factor(breast_cancer_data_clean$`Primary Site - labeled`)
 
-# Changing stage summary variable to a factor
-breast_cancer_data_clean$'Combined Summary Stage with Expanded Regional Codes (2004+)'= as.factor(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)
+# Change the Income variable to factor
+breast_cancer_data_clean$`Median household income inflation adj to 2023`= as.factor(breast_cancer_data_clean$`Median household income inflation adj to 2023`)
 
+# Changing number of tumors to a factor
+breast_cancer_data_clean$`Total number of in situ/malignant tumors for patient` = as.factor(breast_cancer_data_clean$`Total number of in situ/malignant tumors for patient`)
 
 # Recoding cause of death to censor for survival analysis
 breast_cancer_data_clean <- breast_cancer_data_clean %>%
