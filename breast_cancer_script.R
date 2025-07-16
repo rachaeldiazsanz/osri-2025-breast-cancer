@@ -528,4 +528,132 @@ ggplot(plot_data,
     title = "Proportional Breast Cancer Deaths\nby State and Race (Nightingale Style)"
   )
 
+# Changing the variables to numeric 
+
+# Recode mapping
+recoding_stage <- c(
+  "Localized only" = "1",
+  "Regional lymph nodes involved only" = "2",
+  "Regional by direct extension only" = "3",
+  "Regional by both direct extension and lymph node involvement" = "4",
+  "Distant site(s)/node(s) involved" = "0",
+  "Unknown/unstaged/unspecified/DCO" = "5"
+)
+
+# Convert using the mapping
+breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)` <- 
+  recoding_stage[as.character(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)]
+
+# Convert from character to numeric
+breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)` <- 
+  as.numeric(breast_cancer_data_clean$`Combined Summary Stage with Expanded Regional Codes (2004+)`)
+
+
+
+# recoding map for ER
+recoding_er <- c(
+  "Negative" = "0",
+  "Positive" = "1",
+  "Borderline/Unknown" = "2",
+  "Recode not available" = "3"
+)
+
+# Apply the mapping
+breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)` <- 
+  recoding_er[as.character(breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)`)]
+
+# Convert to numeric
+breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)` <- 
+  as.numeric(breast_cancer_data_clean$`ER Status Recode Breast Cancer (2010+)`)
+
+
+
+# Create recoding map for PR
+recoding_pr <- c(
+  "Negative" = "0",
+  "Positive" = "1",
+  "Borderline/Unknown" = "2",
+  "Recode not available" = "2"
+)
+
+# Apply the mapping
+breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)` <- 
+  recoding_pr[as.character(breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)`)]
+
+# Convert to numeric
+breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)` <- 
+  as.numeric(breast_cancer_data_clean$`PR Status Recode Breast Cancer (2010+)`)
+
+
+# Create recoding map for HER2
+recoding_her2 <- c(
+  "Negative" = "1",
+  "Positive" = "2",
+  "Borderline/Unknown" = "0",
+  "Recode not available" = "0"
+)
+
+# Apply the mapping
+breast_cancer_data_clean$`Derived HER2 Recode (2010+)` <- 
+  recoding_her2[as.character(breast_cancer_data_clean$`Derived HER2 Recode (2010+)`)]
+
+# Convert to numeric
+breast_cancer_data_clean$`Derived HER2 Recode (2010+)` <- 
+  as.numeric(breast_cancer_data_clean$`Derived HER2 Recode (2010+)`)
+
+# Recode mappingfor grade
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(`Grade Recode (thru 2017)` = case_when(
+    `Grade Recode (thru 2017)` == "Well differentiated; Grade I" ~ 1,
+    `Grade Recode (thru 2017)` == "Moderately differentiated; Grade II" ~ 2,
+    `Grade Recode (thru 2017)` == "Poorly differentiated; Grade III Undifferentiated; anaplastic; Grade IV" ~ 3,
+    `Grade Recode (thru 2017)` == "Unknown" ~ 4,
+    TRUE ~ NA_real_
+  ))
+
+# Recoding for Race
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(race_numeric = case_when(
+    grepl("Non-Hispanic White", `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`) ~ 0,
+    grepl("Non-Hispanic Black", `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`) ~ 1,
+    grepl("Non-Hispanic Asian or Pacific Islander", `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`) ~ 2,
+    grepl("Non-Hispanic American Indian/Alaska Native", `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`) ~ 3,
+    grepl("Hispanic", `Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)`) ~ 4,
+    TRUE ~ 5  # Optional: fallback for unknowns or unmatched
+  ))
+
+# Recoding for Radiation
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(radiation_numeric = case_when(
+    `Radiation recode (2003+)` == "None/Unknown" ~ 0,
+    `Radiation recode (2003+)` == "Beam radiation" ~ 1,
+    `Radiation recode (2003+)` == "Combination of beam with implants or isotopes" ~ 2,
+    `Radiation recode (2003+)` == "Radioactive implants (includes brachytherapy) (1988+)" ~ 3,
+    `Radiation recode (2003+)` == "Not available (IL or TX)" ~ 4,
+    `Radiation recode (2003+)` == "Radiation, NOS  method or source not specified" ~ 5,
+    `Radiation recode (2003+)` == "Radioisotopes (1988+)" ~ 6,
+    `Radiation recode (2003+)` == "Recommended, unknown if administered" ~ 7,
+    `Radiation recode (2003+)` == "Refused (1988+)" ~ 8,
+    TRUE ~ NA_real_
+  ))
+
+# Recoding for Chemotherapy
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(chemo_numeric = case_when(
+    `Chemotherapy recode (yes, no/unk) (2004+)` == "Yes" ~ 1,
+    `Chemotherapy recode (yes, no/unk) (2004+)` == "No/Unknown" ~ 0,
+    TRUE ~ NA_real_
+  ))
+
+# Recoding for Subtypes
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(subtype_numeric = case_when(
+    `Breast Subtype (2010+)` == "HR+/HER2-" ~ 1,
+    `Breast Subtype (2010+)` == "HR+/HER2+" ~ 2,
+    `Breast Subtype (2010+)` == "HR-/HER2+" ~ 3,
+    `Breast Subtype (2010+)` == "HR-/HER2-" ~ 4,
+    `Breast Subtype (2010+)` == "HR+/HER2+ Recode not available" ~ 5,
+    `Breast Subtype (2010+)` == "Unknown" ~ 6,
+    TRUE ~ 0  # fallback in case there's a typo or unmatched value
+  ))
 

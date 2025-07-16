@@ -59,7 +59,7 @@ rsf_model <- rfsrc(
     `Chemotherapy recode (yes, no/unk) (2004+)` +
     `Breast Subtype (2010+)` +
     `Derived HER2 Recode (2010+)` +
-    `ER Status Recoded Breast Cancer (2010+)` +
+    `ER Status Recoded Breast Cancer (2010+)` +ce
     `PR Status Recoded Breast Cancer (2010+)` +
     `Median household income inflation adj to 2023` +
     `Total number of in situ/malignant tumors for patient`,
