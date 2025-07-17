@@ -19,31 +19,31 @@ for (col in integer_cols) {
   df[col] <- as.numeric(unlist(df[col]))
 }
 # filter the cases with Stage =0 or 1
-df_filt<- subset(df, df$Stage < 2)
+df_filt<- subset(df, df$'Combined Summary Stage with Expanded Regional Codes (2004+)' < 2)
 # choose the covariates from the dataframe
-df_sub <- df_filt[,c("Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)","Age recode with <1 year olds and 90+","Grade Recode (thru 2017)","Combined Summary Stage with Expanded Regional Codes (2004+)","Radiation recode (2003+)","Breast Subtype (2010+)","Derived HER2 Recode (2010+)","ER Status Recoded Breast Cancer (2010+)", "PR Status Recoded Breast Cancer (2010+)","SEER cause-specific death classification","Survival months","chemo","Total number of in situ/malignant tumors for patient")]
+df_sub <- df_filt[,c("race_numeric","age_group_numeric","Grade Recode (thru 2017)","Combined Summary Stage with Expanded Regional Codes (2004+)","radiation_numeric","subtype_numeric","Derived HER2 Recode (2010+)","ER Status Recoded Breast Cancer (2010+)", "PR Status Recoded Breast Cancer (2010+)","SEER cause-specific death classification","Survival months","chemo_numeric","Total number of in situ/malignant tumors for patient")]
 
 # run the first round of matching algorithm
 
-greedymatch <- Match(Tr=df_sub$Stage ,M=1, X=df_sub[vars], replace=FALSE) 
+greedymatch <- Match(Tr=df_sub$'Combined Summary Stage with Expanded Regional Codes (2004+)' ,M=1, X=df_sub[vars], replace=FALSE) 
 matched <- df_sub[unlist(greedymatch[c("index.treated","index.control")]), ]
-matchedtab1 <- CreateTableOne(vars=vars,strata="Stage", data=matched, test=T) # => Complete the command to create table 1 after matching
+matchedtab1 <- CreateTableOne(vars=vars,strata="Combined Summary Stage with Expanded Regional Codes (2004+)", data=matched, test=T) # => Complete the command to create table 1 after matching
 # => Print the balance with smd. 
 print(matchedtab1, smd=TRUE)# not completelt balanced
 
 
 # Adding Caliper, , Weight=2
-greedymatch_mdm <- Match(Tr=df_sub$Stage ,M=1, X=df_sub[vars],Weight=2,caliper = 0.2,ties = F) 
+greedymatch_mdm <- Match(Tr=df_sub$'Combined Summary Stage with Expanded Regional Codes (2004+)' ,M=1, X=df_sub[vars],Weight=2,caliper = 0.2,ties = F) 
 matched_mdm <- df_sub[unlist(greedymatch_mdm[c("index.treated","index.control")]), ]
 ###mahalanobis
 #greedymatch_mdm <- Match(Tr = df_sub$Stage, M = 1, X = df_sub[vars],
 #                         distance = "mahalanobis", caliper = 0.3, ties = FALSE)
 
-matchedtab2 <- CreateTableOne(vars=vars,strata="Stage", data=matched_mdm, test=T)
+matchedtab2 <- CreateTableOne(vars=vars,strata="Combined Summary Stage with Expanded Regional Codes (2004+)", data=matched_mdm, test=T)
 print(matchedtab2, smd=TRUE)
 ######################################
-y_distant <- matched_mdm[matched_mdm$Stage == 0, 'Event'] # => Put here the vector of outcomes y (from matched$outcome.died) of those in the treatment group
-y_localized <- matched_mdm[matched_mdm$Stage == 1, 'Event'] # Put here the vector of outcomes y (from matched$outcome.die
+y_distant <- matched_mdm[matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 0, 'Event'] # => Put here the vector of outcomes y (from matched$outcome.died) of those in the treatment group
+y_localized <- matched_mdm[matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 1, 'Event'] # Put here the vector of outcomes y (from matched$outcome.die
 
 diffy <- y_distant-y_localized # pairwise difference
 t.test(y_distant,y_localized,paired = T,conf.level = 0.95)

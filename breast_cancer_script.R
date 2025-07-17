@@ -601,12 +601,13 @@ breast_cancer_data_clean$`Derived HER2 Recode (2010+)` <-
 breast_cancer_data_clean$`Derived HER2 Recode (2010+)` <- 
   as.numeric(breast_cancer_data_clean$`Derived HER2 Recode (2010+)`)
 
-# Recode mappingfor grade
+# Recode for grade
 breast_cancer_data_clean <- breast_cancer_data_clean %>%
   mutate(`Grade Recode (thru 2017)` = case_when(
-    `Grade Recode (thru 2017)` == "Well differentiated; Grade I" ~ 1,
-    `Grade Recode (thru 2017)` == "Moderately differentiated; Grade II" ~ 2,
-    `Grade Recode (thru 2017)` == "Poorly differentiated; Grade III Undifferentiated; anaplastic; Grade IV" ~ 3,
+    `Grade Recode (thru 2017)` == "Well differentiated; Grade I" ~ 0,
+    `Grade Recode (thru 2017)` == "Moderately differentiated; Grade II" ~ 1,
+    `Grade Recode (thru 2017)` == "Poorly differentiated; Grade III" ~ 2,
+    `Grade Recode (thru 2017)` == "Undifferentiated; anaplastic; Grade IV" ~ 3,
     `Grade Recode (thru 2017)` == "Unknown" ~ 4,
     TRUE ~ NA_real_
   ))
@@ -656,4 +657,14 @@ breast_cancer_data_clean <- breast_cancer_data_clean %>%
     `Breast Subtype (2010+)` == "Unknown" ~ 6,
     TRUE ~ 0  # fallback in case there's a typo or unmatched value
   ))
+
+# Recoding for Age
+breast_cancer_data_clean <- breast_cancer_data_clean %>%
+  mutate(age_group_numeric = case_when(
+    `Age recode with <1 year olds and 90+` == "30-39 years" ~ 1,
+    `Age recode with <1 year olds and 90+` == ">30 years" ~ 0,
+    TRUE ~ NA_real_  # fallback for any unmatched value
+  ))
+
+
 
