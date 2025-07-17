@@ -87,8 +87,8 @@ head(matched_data)
 ################
 ## Counterfacual effect
 ######################
-df_dist<-subset(matched_mdm,matched_mdm$Stage == 0)
-df_loc<-subset(matched_mdm,matched_mdm$Stage == 1)
+df_dist<-subset(matched_mdm,matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 0)
+df_loc<-subset(matched_mdm,matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 1)
 
 fit<-coxph(Surv(Duration, Event) ~ Sex+ Race+Age+No.Tumors+PSite+Chemotherapy+Grade+Stage+Systemic.Therapy, data = matched_mdm)
 surv_dist <- survfit(fit, newdata = df_dist)
