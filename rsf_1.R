@@ -1,8 +1,3 @@
-
-# Install packages (run only once if needed)
-install.packages("randomForestSRC")
-install.packages("ggplot2")
-
 # Load libraries
 library(randomForestSRC)
 library(ggplot2)
@@ -37,7 +32,7 @@ print(rsf_model)
 plot(rsf_model)
 
 # -----------------------------------------------
-# Make pretty variable importance plot 🌿✨
+# Make pretty variable importance plot 
 # -----------------------------------------------
 imp_df <- data.frame(
   Variable = names(rsf_model$importance),

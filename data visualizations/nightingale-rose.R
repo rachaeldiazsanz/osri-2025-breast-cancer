@@ -62,5 +62,3 @@ ggplot(plot_data,
     fill = "Race/Ethnicity",
     title = "Proportional Breast Cancer Deaths\nby State and Race (Nightingale Style)"
   )
-
-
