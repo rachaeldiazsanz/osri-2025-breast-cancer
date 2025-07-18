@@ -129,13 +129,13 @@ print(round(result_table, 3))
 print(texas_cox_model)
 
 # ------------------------------
-# 2️⃣ Tidy the model output
+# Tidy the model output
 # ------------------------------
 
 tidy_cox <- tidy(cox_model, exponentiate = TRUE, conf.int = TRUE)
 
 # ------------------------------
-# 3️⃣ Clean it up for easy reading
+# Clean it up for easy reading
 # ------------------------------
 
 tidy_pretty <- tidy_cox %>%
@@ -151,7 +151,7 @@ tidy_pretty <- tidy_cox %>%
 print(tidy_pretty, n = Inf)
 
 # ------------------------------
-# 4️⃣ Save it to CSV (optional)
+#  Save it to CSV (optional)
 # ------------------------------
 
 california_cox_table <- tidy(california_cox_model)  # raw log HRs
@@ -164,7 +164,7 @@ texas_cox_table <- tidy(texas_cox_model)
 write.csv(texas_cox_table, "new_texas_cox_model.csv", row.names = FALSE)
 
 # ------------------------------
-# 5️⃣ Forest plot (optional)
+# Forest plot (optional)
 # ------------------------------
 
 ggplot(tidy_pretty, aes(x = estimate, y = reorder(term, estimate))) +
