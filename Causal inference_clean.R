@@ -9,7 +9,8 @@ library(fastDummies)
 library(MatchIt)
 library(survival)
 
-df<-read.csv("breast_cancer_data_clean")[,-1]
+breast_cancer_data_clean<-read.csv("~/Desktop/2025-osri-breast-cancer/breast_cancer_data_clean.csv")[,-1]
+df <- breast_cancer_data_clean
 
 ################################################################
 # Matching based on stage "Distant" = "0","Localized" = "1" as our treatment
@@ -18,8 +19,9 @@ integer_cols <- ls(select_if(df, is.integer))
 for (col in integer_cols) {
   df[col] <- as.numeric(unlist(df[col]))
 }
+
 # filter the cases with Stage =0 or 1
-df_filt<- subset(df, df$'Combined Summary Stage with Expanded Regional Codes (2004+)' < 2)
+df_filt<- subset(df, df$'Combined.Summary.Stage.with.Expanded.Regional.Codes..2004..' < 2)
 # choose the covariates from the dataframe
 df_sub <- df_filt[,c("race_numeric","age_group_numeric","Grade Recode (thru 2017)","Combined Summary Stage with Expanded Regional Codes (2004+)","radiation_numeric","subtype_numeric","Derived HER2 Recode (2010+)","ER Status Recoded Breast Cancer (2010+)", "PR Status Recoded Breast Cancer (2010+)","SEER cause-specific death classification","Survival months","chemo_numeric","Total number of in situ/malignant tumors for patient")]
 
@@ -90,7 +92,18 @@ head(matched_data)
 df_dist<-subset(matched_mdm,matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 0)
 df_loc<-subset(matched_mdm,matched_mdm$'Combined Summary Stage with Expanded Regional Codes (2004+)' == 1)
 
-fit<-coxph(Surv(Duration, Event) ~ Sex+ Race+Age+No.Tumors+PSite+Chemotherapy+Grade+Stage+Systemic.Therapy, data = matched_mdm)
+fit <- coxph(Surv(`Survival months`, event) ~ 
+               race_numeric + 
+               age_group_numeric + 
+               `Grade Recode (thru 2017)` + 
+               radiation_numeric + 
+               subtype_numeric + 
+               `Derived HER2 Recode (2010+)` + 
+               `ER Status Recoded Breast Cancer (2010+)` + 
+               `PR Status Recoded Breast Cancer (2010+)` + 
+               chemo_numeric + 
+               `Total number of in situ/malignant tumors for patient`,
+             data = matched_mdm)
 surv_dist <- survfit(fit, newdata = df_dist)
 surv_loc <- survfit(fit, newdata = df_loc)
 ate <- mean(surv_loc$surv - surv_dist$surv)
@@ -105,19 +118,25 @@ lines(surv_dist, col = "red", lty = 2, lwd = 2)
 legend("topright", legend = c("Localized Stage", "Distant Stage"), 
        col = c("blue", "red"), lty = c(1, 2), lwd = 2)
 ##############
-newdata_localized <- data.frame(Stage = 1, 
-                                Age = 0,  # example age
-                                Sex = 1, 
-                                Race = 0, 
-                                Grade = 2, 
-                                No.Tumors = 1,PSite=1,Chemotherapy=1,Systemic.Therapy=1)
+newdata_localized <- data.frame(`Combined Summary Stage with Expanded Regional Codes (2004+)` = 1,
+                                age_group_numeric = 0, race_numeric = 0, 'Grade Recode (thru 2017)' = 2, 
+                                radiation_numeric = 1, chemo_numeric = 1, subtype_numeric = 1,
+                                `Derived HER2 Recode (2010+)` = 1, 
+                                `ER Status Recode Breast Cancer (2010+)` = 1,
+                                `PR Status Recode Breast Cancer (2010+)` = 1
+)
 
-newdata_distant <- data.frame(Stage = 0, 
-                              Age = 0, 
-                              Sex = 1, 
-                              Race = 0, 
-                              Grade = 2, 
-                              No.Tumors = 1,PSite=1,Chemotherapy=1,Systemic.Therapy=1)
+newdata_distant <- data.frame(`Combined Summary Stage with Expanded Regional Codes (2004+)` = 0,
+                              age_group_numeric = 0, 
+                              race_numeric = 0, 
+                              `Grade Recode (thru 2017)` = 2,
+                              radiation_numeric = 1, 
+                              chemo_numeric = 1, 
+                              subtype_numeric = 1,
+                              `Derived HER2 Recode (2010+)` = 1,
+                              `ER Status Recode Breast Cancer (2010+)` = 1,
+                              `PR Status Recode Breast Cancer (2010+)` = 1)
+
 
 
 
@@ -176,3 +195,4 @@ ggplot(surv_df, aes(x = time, y = surv, color = Stage, fill = Stage)) +
   ) +
   scale_color_manual(values = c("blue", "red")) +
   scale_fill_manual(values = c("blue", "red"))
+
